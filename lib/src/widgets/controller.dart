@@ -25,8 +25,8 @@ class LucideAnimatedIconController extends ChangeNotifier {
 
   void _onStatusChanged(AnimationStatus status) {
     final wasAnimating = _isAnimating;
-    _isAnimating = status == AnimationStatus.forward ||
-        status == AnimationStatus.reverse;
+    _isAnimating =
+        status == AnimationStatus.forward || status == AnimationStatus.reverse;
     if (wasAnimating != _isAnimating) {
       notifyListeners();
     }

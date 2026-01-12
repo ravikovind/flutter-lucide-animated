@@ -11,6 +11,24 @@ const check = LucideAnimatedIconData(
   viewBoxHeight: 24.0,
   strokeWidth: 2.0,
   elements: [
-    PathElement(d: 'M4 12 9 17L20 6', animation: CombinedAnimation(pathLength: PathLengthAnimation(from: 0, to: 1, duration: Duration(milliseconds: 400), curve: Curves.easeOut), opacity: OpacityAnimation(from: 0, to: 1, duration: Duration(milliseconds: 400), curve: Curves.easeOut), duration: Duration(milliseconds: 400),  curve: Curves.easeOut)),
+    PathElement(
+      d: 'M4 12 9 17L20 6',
+      animation: CombinedAnimation(
+        pathLength: PathLengthAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        opacity: OpacityAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        duration: Duration(milliseconds: 400),
+        curve: Curves.easeOut,
+      ),
+    ),
   ],
 );

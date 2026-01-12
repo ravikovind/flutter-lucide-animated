@@ -11,7 +11,25 @@ const arrow_right = LucideAnimatedIconData(
   viewBoxHeight: 24.0,
   strokeWidth: 2.0,
   elements: [
-    PathElement(d: 'M5 12h14', animation: PathLengthAnimation(from: 0, to: 1, duration: Duration(milliseconds: 400), delay: Duration(milliseconds: 0), curve: Curves.easeOut)),
-    PathElement(d: 'm12 5 7 7-7 7', animation: PathLengthAnimation(from: 0, to: 1, duration: Duration(milliseconds: 400), delay: Duration(milliseconds: 50), curve: Curves.easeOut)),
+    PathElement(
+      d: 'M5 12h14',
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 0),
+        curve: Curves.easeOut,
+      ),
+    ),
+    PathElement(
+      d: 'm12 5 7 7-7 7',
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 50),
+        curve: Curves.easeOut,
+      ),
+    ),
   ],
 );

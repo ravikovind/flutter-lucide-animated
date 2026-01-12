@@ -13,10 +13,7 @@ class PathElement extends IconElement {
   /// SVG path data (d attribute)
   final String d;
 
-  const PathElement({
-    required this.d,
-    super.animation,
-  });
+  const PathElement({required this.d, super.animation});
 }
 
 /// SVG circle element
@@ -74,8 +71,5 @@ class PolylineElement extends IconElement {
   /// List of points as "x1,y1 x2,y2 x3,y3..."
   final String points;
 
-  const PolylineElement({
-    required this.points,
-    super.animation,
-  });
+  const PolylineElement({required this.points, super.animation});
 }

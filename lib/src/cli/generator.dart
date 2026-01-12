@@ -9,14 +9,21 @@ class Generator {
     // Header
     buffer.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
     buffer.writeln('// flutter_lucide_animated');
-    buffer.writeln('// ignore_for_file: constant_identifier_names, unused_import');
+    buffer.writeln(
+      '// ignore_for_file: constant_identifier_names, unused_import',
+    );
     buffer.writeln();
     buffer.writeln("import 'package:flutter/widgets.dart';");
-    buffer.writeln("import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';");
+    buffer.writeln(
+      "import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';",
+    );
     buffer.writeln();
 
     // Parse viewBox
-    final viewBoxParts = icon.viewBox.split(' ').map((s) => double.parse(s)).toList();
+    final viewBoxParts = icon.viewBox
+        .split(' ')
+        .map((s) => double.parse(s))
+        .toList();
     final viewBoxWidth = viewBoxParts.length > 2 ? viewBoxParts[2] : 24.0;
     final viewBoxHeight = viewBoxParts.length > 3 ? viewBoxParts[3] : 24.0;
 
@@ -82,8 +89,11 @@ class Generator {
     return 'PathLengthAnimation(from: 0, to: 1, duration: Duration(milliseconds: 400), delay: Duration(milliseconds: $delay), curve: Curves.easeOut)';
   }
 
-  String _generatePathElement(ElementData element, int index) {
+  String? _generatePathElement(ElementData element, int index) {
     final d = element.attributes['d'] as String? ?? '';
+    // Skip empty or invalid paths (must start with M/m command)
+    final trimmed = d.trim();
+    if (trimmed.isEmpty || !RegExp(r'^[Mm]').hasMatch(trimmed)) return null;
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
         : _defaultAnimation(index);
@@ -91,10 +101,12 @@ class Generator {
     return "PathElement(d: '$d', animation: $animation)";
   }
 
-  String _generateCircleElement(ElementData element, int index) {
-    final cx = element.attributes['cx'] ?? 0;
-    final cy = element.attributes['cy'] ?? 0;
-    final r = element.attributes['r'] ?? 0;
+  String? _generateCircleElement(ElementData element, int index) {
+    final cx = _parseNum(element.attributes['cx']);
+    final cy = _parseNum(element.attributes['cy']);
+    final r = _parseNum(element.attributes['r']);
+    // Skip circles outside viewBox (corrupted data)
+    if (cx > 50 || cy > 50 || r > 50) return null;
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
         : _defaultAnimation(index);
@@ -155,8 +167,17 @@ class Generator {
         return 'PathLengthAnimation(from: $from, to: $to, duration: $durationMs, $delayMs curve: $curve)';
 
       case 'opacity':
-        final from = animation['from'] ?? 0.0;
-        final to = animation['to'] ?? 1.0;
+        var from = animation['from'] ?? 0.0;
+        var to = animation['to'] ?? 1.0;
+        // Fix problematic opacity values
+        if (from == 0 && to == 0) {
+          // Invisible - use fade in
+          return 'OpacityAnimation(from: 0.0, to: 1.0, duration: $durationMs, $delayMs curve: $curve)';
+        }
+        if (from == to) {
+          // Static - use pathLength animation instead
+          return 'PathLengthAnimation(from: 0.0, to: 1.0, duration: $durationMs, $delayMs curve: $curve)';
+        }
         return 'OpacityAnimation(from: $from, to: $to, duration: $durationMs, $delayMs curve: $curve)';
 
       case 'rotate':
@@ -183,19 +204,40 @@ class Generator {
         return 'TranslateKeyframeAnimation(keyframesX: $keyframesX, keyframesY: $keyframesY, duration: $durationMs, $delayMs curve: $curve)';
 
       case 'scale':
-        final from = animation['from'] ?? 1.0;
-        final to = animation['to'] ?? 1.0;
-        return 'ScaleAnimation(from: $from, to: $to, duration: $durationMs, $delayMs curve: $curve)';
+        final from = animation['from'];
+        final to = animation['to'];
+        // Handle keyframe scale (when to is a list)
+        if (to is List) {
+          return 'ScaleKeyframeAnimation(keyframes: $to, duration: $durationMs, $delayMs curve: $curve)';
+        }
+        return 'ScaleAnimation(from: ${from ?? 1.0}, to: ${to ?? 1.0}, duration: $durationMs, $delayMs curve: $curve)';
 
       case 'combined':
         final parts = <String>[];
         if (animation['pathLength'] != null) {
           final pl = animation['pathLength'] as Map<String, dynamic>;
-          parts.add('pathLength: PathLengthAnimation(from: ${pl['from'] ?? 0.0}, to: ${pl['to'] ?? 1.0}, duration: $durationMs, curve: $curve)');
+          final plFrom = pl['from'] ?? 0.0;
+          final plTo = pl['to'] ?? 1.0;
+          parts.add(
+            'pathLength: PathLengthAnimation(from: $plFrom, to: $plTo, duration: $durationMs, curve: $curve)',
+          );
         }
         if (animation['opacity'] != null) {
           final op = animation['opacity'] as Map<String, dynamic>;
-          parts.add('opacity: OpacityAnimation(from: ${op['from'] ?? 0.0}, to: ${op['to'] ?? 1.0}, duration: $durationMs, curve: $curve)');
+          var opFrom = op['from'] ?? 0.0;
+          var opTo = op['to'] ?? 1.0;
+          // Fix invisible animations
+          if (opFrom == 0 && opTo == 0) opTo = 1.0;
+          // Only add opacity if it actually animates
+          if (opFrom != opTo) {
+            parts.add(
+              'opacity: OpacityAnimation(from: $opFrom, to: $opTo, duration: $durationMs, curve: $curve)',
+            );
+          }
+        }
+        // If no valid animations, use default pathLength
+        if (parts.isEmpty) {
+          return 'PathLengthAnimation(from: 0.0, to: 1.0, duration: $durationMs, $delayMs curve: $curve)';
         }
         return 'CombinedAnimation(${parts.join(', ')}, duration: $durationMs, $delayMs curve: $curve)';
 
@@ -284,6 +326,13 @@ class Generator {
   String _toSnakeCase(String input) {
     // Convert kebab-case to snake_case
     return input.replaceAll('-', '_');
+  }
+
+  double _parseNum(dynamic value) {
+    if (value == null) return 0;
+    if (value is num) return value.toDouble();
+    if (value is String) return double.tryParse(value) ?? 0;
+    return 0;
   }
 
   /// Generate barrel export file for all icons

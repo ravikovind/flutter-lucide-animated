@@ -59,7 +59,9 @@ class AddCommand extends Command<void> {
         stdout.writeln('Found ${registry.total} icons');
 
         // Warning for large number of icons
-        stdout.write('This will add ${iconsToAdd.length} icons. Continue? [y/N] ');
+        stdout.write(
+          'This will add ${iconsToAdd.length} icons. Continue? [y/N] ',
+        );
         final response = stdin.readLineSync()?.toLowerCase();
         if (response != 'y' && response != 'yes') {
           stdout.writeln('Cancelled');
@@ -91,7 +93,9 @@ class AddCommand extends Command<void> {
           final file = File(filePath);
 
           if (file.existsSync() && !force) {
-            stdout.writeln('skipped (already exists, use --force to overwrite)');
+            stdout.writeln(
+              'skipped (already exists, use --force to overwrite)',
+            );
             continue;
           }
 
@@ -150,12 +154,16 @@ class AddCommand extends Command<void> {
         // Show appropriate import based on output path
         if (parentDir.startsWith('lib/')) {
           final importPath = parentDir.substring(4); // Remove 'lib/' prefix
-          stdout.writeln("  import 'package:your_app/$importPath/lucide_animated.dart';");
+          stdout.writeln(
+            "  import 'package:your_app/$importPath/lucide_animated.dart';",
+          );
         } else {
           stdout.writeln("  import '$parentDir/lucide_animated.dart';");
         }
         stdout.writeln('');
-        stdout.writeln('  LucideAnimatedIcon(icon: ${addedIcons.first.replaceAll('-', '_')})');
+        stdout.writeln(
+          '  LucideAnimatedIcon(icon: ${addedIcons.first.replaceAll('-', '_')})',
+        );
       }
     } finally {
       fetcher.dispose();

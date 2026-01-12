@@ -1,0 +1,55 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// flutter_lucide_animated
+// ignore_for_file: constant_identifier_names, unused_import
+
+import 'package:flutter/widgets.dart';
+import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
+
+const chart_column_increasing = LucideAnimatedIconData(
+  name: 'chart-column-increasing',
+  viewBoxWidth: 24.0,
+  viewBoxHeight: 24.0,
+  strokeWidth: 2.0,
+  elements: [
+    PathElement(
+      d: 'M13 17V9',
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 0),
+        curve: Curves.easeOut,
+      ),
+    ),
+    PathElement(
+      d: 'M18 17V5',
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 50),
+        curve: Curves.easeOut,
+      ),
+    ),
+    PathElement(
+      d: 'M3 3v16a2 2 0 0 0 2 2h16',
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 100),
+        curve: Curves.easeOut,
+      ),
+    ),
+    PathElement(
+      d: 'M8 17v-3',
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 150),
+        curve: Curves.easeOut,
+      ),
+    ),
+  ],
+);

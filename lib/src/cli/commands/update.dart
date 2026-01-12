@@ -10,7 +10,8 @@ class UpdateCommand extends Command<void> {
   final name = 'update';
 
   @override
-  final description = 'Update installed animated Lucide icons to latest versions';
+  final description =
+      'Update installed animated Lucide icons to latest versions';
 
   UpdateCommand() {
     argParser.addOption(
@@ -31,7 +32,9 @@ class UpdateCommand extends Command<void> {
     if (!dir.existsSync()) {
       stderr.writeln('No icons installed in $outputDir');
       stderr.writeln('');
-      stderr.writeln('To add icons: dart run flutter_lucide_animated add <icon_name>');
+      stderr.writeln(
+        'To add icons: dart run flutter_lucide_animated add <icon_name>',
+      );
       return;
     }
 

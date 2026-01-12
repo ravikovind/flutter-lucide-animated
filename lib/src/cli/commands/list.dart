@@ -19,11 +19,7 @@ class ListCommand extends Command<void> {
         help: 'List only installed icons in current project',
         negatable: false,
       )
-      ..addOption(
-        'search',
-        abbr: 's',
-        help: 'Search for icons by name',
-      )
+      ..addOption('search', abbr: 's', help: 'Search for icons by name')
       ..addOption(
         'output',
         abbr: 'o',
@@ -58,7 +54,9 @@ class ListCommand extends Command<void> {
       // Filter by search query
       if (searchQuery != null && searchQuery.isNotEmpty) {
         final query = searchQuery.toLowerCase();
-        icons = icons.where((name) => name.toLowerCase().contains(query)).toList();
+        icons = icons
+            .where((name) => name.toLowerCase().contains(query))
+            .toList();
       }
 
       if (icons.isEmpty) {
@@ -81,7 +79,9 @@ class ListCommand extends Command<void> {
       stdout.writeln('Registry version: ${registry.version}');
       stdout.writeln('Last updated: ${registry.updatedAt.toIso8601String()}');
       stdout.writeln('');
-      stdout.writeln('To add icons: dart run flutter_lucide_animated add <icon_name>');
+      stdout.writeln(
+        'To add icons: dart run flutter_lucide_animated add <icon_name>',
+      );
     } finally {
       fetcher.dispose();
     }
@@ -93,7 +93,9 @@ class ListCommand extends Command<void> {
     if (!dir.existsSync()) {
       stdout.writeln('No icons installed yet.');
       stdout.writeln('');
-      stdout.writeln('To add icons: dart run flutter_lucide_animated add <icon_name>');
+      stdout.writeln(
+        'To add icons: dart run flutter_lucide_animated add <icon_name>',
+      );
       return;
     }
 
@@ -108,7 +110,9 @@ class ListCommand extends Command<void> {
     if (files.isEmpty) {
       stdout.writeln('No icons installed yet.');
       stdout.writeln('');
-      stdout.writeln('To add icons: dart run flutter_lucide_animated add <icon_name>');
+      stdout.writeln(
+        'To add icons: dart run flutter_lucide_animated add <icon_name>',
+      );
       return;
     }
 
@@ -121,7 +125,9 @@ class ListCommand extends Command<void> {
     // Filter by search query
     if (searchQuery != null && searchQuery.isNotEmpty) {
       final query = searchQuery.toLowerCase();
-      icons = icons.where((name) => name.toLowerCase().contains(query)).toList();
+      icons = icons
+          .where((name) => name.toLowerCase().contains(query))
+          .toList();
     }
 
     if (icons.isEmpty) {
@@ -148,7 +154,8 @@ class ListCommand extends Command<void> {
   void _printInColumns(List<String> items) {
     // Get terminal width (default to 80 if not available)
     final termWidth = stdout.hasTerminal ? stdout.terminalColumns : 80;
-    final maxItemWidth = items.map((s) => s.length).reduce((a, b) => a > b ? a : b) + 2;
+    final maxItemWidth =
+        items.map((s) => s.length).reduce((a, b) => a > b ? a : b) + 2;
     final columns = (termWidth / maxItemWidth).floor().clamp(1, 6);
 
     for (var i = 0; i < items.length; i += columns) {

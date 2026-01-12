@@ -1,0 +1,22 @@
+{
+  "name": "message-circle-dashed",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "d",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

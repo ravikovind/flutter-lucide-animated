@@ -1,0 +1,14 @@
+{
+  "name": "flutter-lucide-animated-sync",
+  "version": "1.0.0",
+  "description": "Sync script to parse pqoqubbw/icons TSX files and generate JSON for Flutter",
+  "type": "module",
+  "scripts": {
+    "sync": "node sync.js",
+    "sync:test": "node sync.js --limit 20"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "smartphone-charging",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "rect",
+      "height": "20",
+      "rx": "2",
+      "ry": "2",
+      "width": "14",
+      "x": "5",
+      "y": "2"
+    },
+    {
+      "type": "path",
+      "d": "M12.667 8 10 12h4l-2.667 4"
+    }
+  ],
+  "animation": null
+}

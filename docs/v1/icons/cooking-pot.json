@@ -1,0 +1,104 @@
+{
+  "name": "cooking-pot",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "g",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          1.08,
+          1
+        ],
+        "duration": 950,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M2 12h20",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          1.08,
+          1
+        ],
+        "duration": 950,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          1.08,
+          1
+        ],
+        "duration": 950,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          1.08,
+          1
+        ],
+        "duration": 950,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m4 8 16-4",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          1.08,
+          1
+        ],
+        "duration": 950,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          1.08,
+          1
+        ],
+        "duration": 950,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    }
+  ],
+  "animation": null
+}

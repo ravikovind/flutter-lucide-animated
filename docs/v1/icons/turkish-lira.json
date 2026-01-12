@@ -1,0 +1,64 @@
+{
+  "name": "turkish-lira",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M18 12a9 9 0 0 1-9 9V3",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M15 4 5 9",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m15 8.5-10 5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

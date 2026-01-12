@@ -1,0 +1,29 @@
+{
+  "name": "thermometer",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -5,
+          5,
+          -5,
+          5,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

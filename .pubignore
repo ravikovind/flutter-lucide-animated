@@ -1,0 +1,24 @@
+# Development files
+scripts/
+.github/
+PLAN.md
+ARCHITECTURE.md
+
+# Build artifacts
+build/
+.dart_tool/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Test coverage
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Lock files (pub.dev recommends excluding)
+pubspec.lock

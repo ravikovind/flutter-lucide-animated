@@ -1,0 +1,78 @@
+{
+  "name": "bell",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -10,
+          10,
+          -10,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -10,
+          10,
+          -10,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M10.3 21a1.94 1.94 0 0 0 3.4 0",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -10,
+          10,
+          -10,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "rotateKeyframe",
+    "keyframes": [
+      0,
+      -10,
+      10,
+      -10,
+      0
+    ],
+    "origin": "center",
+    "duration": 400,
+    "delay": 0,
+    "easing": "easeOut"
+  }
+}

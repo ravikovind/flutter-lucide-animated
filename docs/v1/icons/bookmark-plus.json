@@ -1,0 +1,52 @@
+{
+  "name": "bookmark-plus",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "12",
+      "x2": "12",
+      "y1": "7",
+      "y2": "13",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "15",
+      "x2": "9",
+      "y1": "10",
+      "y2": "10",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

@@ -1,0 +1,45 @@
+{
+  "name": "cloud-sun",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "g",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "d",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

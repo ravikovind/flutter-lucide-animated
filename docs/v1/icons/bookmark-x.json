@@ -1,0 +1,46 @@
+{
+  "name": "bookmark-x",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m14.5 7.5-5 5",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m9.5 7.5 5 5",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 300,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

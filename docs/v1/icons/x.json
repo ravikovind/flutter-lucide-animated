@@ -1,0 +1,46 @@
+{
+  "name": "x",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M18 6 6 18",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m6 6 12 12",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

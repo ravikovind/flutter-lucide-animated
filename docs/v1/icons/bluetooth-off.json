@@ -1,0 +1,64 @@
+{
+  "name": "bluetooth-off",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "m17 17-5 5V12l-5 5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m2 2 20 20",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M14.5 9.5 17 7l-5-5v4.5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

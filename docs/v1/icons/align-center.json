@@ -1,0 +1,22 @@
+{
+  "name": "align-center",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M17 12H7"
+    },
+    {
+      "type": "path",
+      "d": "M19 18H5"
+    },
+    {
+      "type": "path",
+      "d": "M21 6H3"
+    }
+  ],
+  "animation": null
+}

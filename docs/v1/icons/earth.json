@@ -1,0 +1,84 @@
+{
+  "name": "earth",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M21.54 15H17a2 2 0 0 0-2 2v4.54",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "circle",
+      "cx": "12",
+      "cy": "12",
+      "r": "10",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

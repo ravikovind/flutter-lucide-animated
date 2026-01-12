@@ -1,0 +1,102 @@
+{
+  "name": "languages",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m5 8 6 6",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m4 14 6-6 3-3",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M2 5h12",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M7 2h1",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m22 22-5-10-5 10",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M14 18h6",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "opacity",
+    "from": 1,
+    "to": 1,
+    "duration": 400,
+    "delay": 0,
+    "easing": "easeOut"
+  }
+}

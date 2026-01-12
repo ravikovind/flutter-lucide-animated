@@ -1,0 +1,101 @@
+{
+  "name": "folder-key",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -15,
+          8,
+          -5,
+          0
+        ],
+        "origin": "center",
+        "duration": 900,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -15,
+          8,
+          -5,
+          0
+        ],
+        "origin": "center",
+        "duration": 900,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "circle",
+      "cx": "16",
+      "cy": "20",
+      "r": "2",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -15,
+          8,
+          -5,
+          0
+        ],
+        "origin": "center",
+        "duration": 900,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m22 14-4.5 4.5",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -15,
+          8,
+          -5,
+          0
+        ],
+        "origin": "center",
+        "duration": 900,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m21 15 1 1",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -15,
+          8,
+          -5,
+          0
+        ],
+        "origin": "center",
+        "duration": 900,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    }
+  ],
+  "animation": null
+}

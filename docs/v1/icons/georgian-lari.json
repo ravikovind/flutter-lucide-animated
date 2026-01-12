@@ -1,0 +1,82 @@
+{
+  "name": "georgian-lari",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M11.5 21a7.5 7.5 0 1 1 7.35-9",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M4 21h16",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M9 12V3",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M13 12V3",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 500,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

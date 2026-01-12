@@ -1,0 +1,14 @@
+{
+  "name": "arrow-big-down",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M15 6v6h4l-7 7-7-7h4V6h6z"
+    }
+  ],
+  "animation": null
+}

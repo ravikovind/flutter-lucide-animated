@@ -1,0 +1,76 @@
+{
+  "name": "loader-pinwheel",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "g",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 360,
+        "origin": "center",
+        "duration": 1000,
+        "delay": 0,
+        "easing": "linear"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M22 12a1 1 0 0 1-10 0 1 1 0 0 0-10 0",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 360,
+        "origin": "center",
+        "duration": 1000,
+        "delay": 0,
+        "easing": "linear"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M7 20.7a1 1 0 1 1 5-8.7 1 1 0 1 0 5-8.6",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 360,
+        "origin": "center",
+        "duration": 1000,
+        "delay": 0,
+        "easing": "linear"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M7 3.3a1 1 0 1 1 5 8.6 1 1 0 1 0 5 8.6",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 360,
+        "origin": "center",
+        "duration": 1000,
+        "delay": 0,
+        "easing": "linear"
+      }
+    },
+    {
+      "type": "circle",
+      "cx": "12",
+      "cy": "12",
+      "r": "10",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 360,
+        "origin": "center",
+        "duration": 1000,
+        "delay": 0,
+        "easing": "linear"
+      }
+    }
+  ],
+  "animation": null
+}

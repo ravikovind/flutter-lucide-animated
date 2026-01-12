@@ -1,0 +1,62 @@
+{
+  "name": "badge-percent",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 180,
+        "origin": "center",
+        "duration": 400,
+        "delay": 100,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m15 9-6 6",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 180,
+        "origin": "center",
+        "duration": 400,
+        "delay": 100,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M9 9h.01",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 180,
+        "origin": "center",
+        "duration": 400,
+        "delay": 100,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M15 15h.01",
+      "animation": {
+        "type": "rotate",
+        "from": 0,
+        "to": 180,
+        "origin": "center",
+        "duration": 400,
+        "delay": 100,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

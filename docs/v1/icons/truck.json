@@ -1,0 +1,204 @@
+{
+  "name": "truck",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "line",
+      "x1": null,
+      "x2": null,
+      "y1": null,
+      "y2": null,
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M15 18H9",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "circle",
+      "cx": "7",
+      "cy": "18",
+      "r": "2",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "7",
+      "x2": "7",
+      "y1": "16.5",
+      "y2": "19.5",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "5.5",
+      "x2": "8.5",
+      "y1": "18",
+      "y2": "18",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "circle",
+      "cx": "17",
+      "cy": "18",
+      "r": "2",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "17",
+      "x2": "17",
+      "y1": "16.5",
+      "y2": "19.5",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "15.5",
+      "x2": "18.5",
+      "y1": "18",
+      "y2": "18",
+      "animation": {
+        "type": "opacity",
+        "from": 0,
+        "to": 1,
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

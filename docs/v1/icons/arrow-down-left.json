@@ -1,0 +1,58 @@
+{
+  "name": "arrow-down-left",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M17 17H7V7",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          0.85,
+          1
+        ],
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M7 17 L12 12",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          0.85,
+          1
+        ],
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M17 7 L12 12",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          0.85,
+          1
+        ],
+        "duration": 500,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    }
+  ],
+  "animation": null
+}

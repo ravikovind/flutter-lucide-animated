@@ -1,0 +1,63 @@
+{
+  "name": "moon",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -10,
+          10,
+          -5,
+          5,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -10,
+          10,
+          -5,
+          5,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "rotateKeyframe",
+    "keyframes": [
+      0,
+      -10,
+      10,
+      -5,
+      5,
+      0
+    ],
+    "origin": "center",
+    "duration": 400,
+    "delay": 0,
+    "easing": "easeOut"
+  }
+}

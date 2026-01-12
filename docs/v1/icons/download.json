@@ -1,0 +1,68 @@
+{
+  "name": "download",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 0,
+        "toY": 2,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 0,
+        "toY": 2,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "polyline",
+      "points": "7 10 12 15 17 10",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 0,
+        "toY": 2,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "line",
+      "x1": "12",
+      "x2": "12",
+      "y1": "15",
+      "y2": "3",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 0,
+        "toY": 2,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

@@ -1,0 +1,62 @@
+{
+  "name": "square-stack",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          0.9,
+          1
+        ],
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          0.9,
+          1
+        ],
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "rect",
+      "height": "8",
+      "rx": "2",
+      "width": "8",
+      "x": "14",
+      "y": "14",
+      "animation": {
+        "type": "scale",
+        "from": 1,
+        "to": [
+          1,
+          0.9,
+          1
+        ],
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

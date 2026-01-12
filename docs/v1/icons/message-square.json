@@ -1,0 +1,57 @@
+{
+  "name": "message-square",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -7,
+          7,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+      "animation": {
+        "type": "rotateKeyframe",
+        "keyframes": [
+          0,
+          -7,
+          7,
+          0
+        ],
+        "origin": "center",
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "rotateKeyframe",
+    "keyframes": [
+      0,
+      -7,
+      7,
+      0
+    ],
+    "origin": "center",
+    "duration": 400,
+    "delay": 0,
+    "easing": "easeOut"
+  }
+}

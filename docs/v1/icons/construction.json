@@ -1,0 +1,43 @@
+{
+  "name": "construction",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "pattern",
+      "height": "14",
+      "width": "6"
+    },
+    {
+      "type": "path",
+      "d": "M-4 -2 L14 30"
+    },
+    {
+      "type": "rect",
+      "height": "8",
+      "rx": "1",
+      "width": "20",
+      "x": "2",
+      "y": "6"
+    },
+    {
+      "type": "path",
+      "d": "M17 14v7"
+    },
+    {
+      "type": "path",
+      "d": "M7 14v7"
+    },
+    {
+      "type": "path",
+      "d": "M17 3v3"
+    },
+    {
+      "type": "path",
+      "d": "M7 3v3"
+    }
+  ],
+  "animation": null
+}

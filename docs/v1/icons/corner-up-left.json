@@ -1,0 +1,54 @@
+{
+  "name": "corner-up-left",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 450,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M20 20v-7a4 4 0 0 0-4-4H4",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 450,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M9 14 4 9l5-5",
+      "animation": {
+        "type": "opacity",
+        "from": 1,
+        "to": 1,
+        "duration": 450,
+        "delay": 0,
+        "easing": "easeInOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "opacity",
+    "from": 1,
+    "to": 1,
+    "duration": 450,
+    "delay": 0,
+    "easing": "easeInOut"
+  }
+}

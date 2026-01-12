@@ -1,0 +1,65 @@
+{
+  "name": "cloud-download",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M4.2 15.1A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 2,
+        "toY": 0,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "g",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 2,
+        "toY": 0,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M12 13v8l-4-4",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 2,
+        "toY": 0,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m12 21 4-4",
+      "animation": {
+        "type": "translate",
+        "fromX": 0,
+        "toX": 0,
+        "fromY": 2,
+        "toY": 0,
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

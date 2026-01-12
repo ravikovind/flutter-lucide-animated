@@ -1,0 +1,136 @@
+{
+  "name": "roller-coaster",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "path",
+      "d": "M6 19V5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M10 19V6.8",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M14 19v-7.8",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M18 5v4",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M18 19v-6",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M22 19V9",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M2 19V9a4 4 0 0 1 4-4c2 0 4 1.33 6 4s4 4 6 4a4 4 0 1 0-3-6.65",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 1,
+          "to": 1
+        },
+        "opacity": {
+          "from": 1,
+          "to": 1
+        },
+        "duration": 400,
+        "delay": 0,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": null
+}

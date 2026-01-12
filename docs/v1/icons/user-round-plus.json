@@ -1,0 +1,116 @@
+{
+  "name": "user-round-plus",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 200,
+        "delay": 600,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M2 21a8 8 0 0 1 13.292-6",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 200,
+        "delay": 600,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "circle",
+      "cx": "10",
+      "cy": "8",
+      "r": "5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 200,
+        "delay": 600,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M19 16v6",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 200,
+        "delay": 600,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M22 19h-6",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 200,
+        "delay": 600,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "combined",
+    "pathLength": {
+      "from": 0,
+      "to": 1
+    },
+    "opacity": {
+      "from": 0,
+      "to": 1
+    },
+    "duration": 200,
+    "delay": 600,
+    "easing": "easeOut"
+  }
+}

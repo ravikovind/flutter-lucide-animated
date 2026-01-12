@@ -1,0 +1,20 @@
+{
+  "name": "contrast",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "circle",
+      "cx": "12",
+      "cy": "12",
+      "r": "10"
+    },
+    {
+      "type": "path",
+      "d": "M12 18a6 6 0 0 0 0-12v12z"
+    }
+  ],
+  "animation": null
+}

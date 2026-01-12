@@ -1,0 +1,114 @@
+{
+  "name": "trending-up-down",
+  "viewBox": "0 0 24 24",
+  "strokeWidth": 2,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "elements": [
+    {
+      "type": "svg",
+      "height": "size",
+      "width": "size",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 300,
+        "delay": 300,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M21 21 14.828 14.828",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 300,
+        "delay": 300,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M21 16v5h-5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 300,
+        "delay": 300,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "m21 3-9 9-4-4-6 6",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 300,
+        "delay": 300,
+        "easing": "easeOut"
+      }
+    },
+    {
+      "type": "path",
+      "d": "M21 8V3h-5",
+      "animation": {
+        "type": "combined",
+        "pathLength": {
+          "from": 0,
+          "to": 1
+        },
+        "opacity": {
+          "from": 0,
+          "to": 1
+        },
+        "duration": 300,
+        "delay": 300,
+        "easing": "easeOut"
+      }
+    }
+  ],
+  "animation": {
+    "type": "combined",
+    "pathLength": {
+      "from": 0,
+      "to": 1
+    },
+    "opacity": {
+      "from": 0,
+      "to": 1
+    },
+    "duration": 300,
+    "delay": 300,
+    "easing": "easeOut"
+  }
+}

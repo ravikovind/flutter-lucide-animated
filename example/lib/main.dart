@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
+import 'lucide_animated/lucide_animated.dart';
 
 void main() {
   runApp(const MyApp());

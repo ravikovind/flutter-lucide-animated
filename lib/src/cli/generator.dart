@@ -9,8 +9,9 @@ class Generator {
     // Header
     buffer.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
     buffer.writeln('// flutter_lucide_animated');
-    buffer.writeln('// ignore_for_file: constant_identifier_names');
+    buffer.writeln('// ignore_for_file: constant_identifier_names, unused_import');
     buffer.writeln();
+    buffer.writeln("import 'package:flutter/widgets.dart';");
     buffer.writeln("import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';");
     buffer.writeln();
 
@@ -34,10 +35,15 @@ class Generator {
       buffer.writeln('  animation: ${_generateAnimation(icon.animation!)},');
     }
 
-    // Elements
+    // Elements (skip non-drawable elements like svg)
     buffer.writeln('  elements: [');
+    var elementIndex = 0;
     for (final element in icon.elements) {
-      buffer.writeln('    ${_generateElement(element)},');
+      final elementCode = _generateElement(element, elementIndex);
+      if (elementCode != null) {
+        buffer.writeln('    $elementCode,');
+        elementIndex++;
+      }
     }
     buffer.writeln('  ],');
 
@@ -47,51 +53,56 @@ class Generator {
   }
 
   /// Generate Dart code for an element
-  String _generateElement(ElementData element) {
+  /// Returns null for non-drawable elements (like svg container)
+  /// [index] is used for staggered delay when no animation is defined
+  String? _generateElement(ElementData element, int index) {
     switch (element.type) {
       case 'path':
-        return _generatePathElement(element);
+        return _generatePathElement(element, index);
       case 'circle':
-        return _generateCircleElement(element);
+        return _generateCircleElement(element, index);
       case 'rect':
-        return _generateRectElement(element);
+        return _generateRectElement(element, index);
       case 'line':
-        return _generateLineElement(element);
+        return _generateLineElement(element, index);
       case 'polyline':
-        return _generatePolylineElement(element);
+        return _generatePolylineElement(element, index);
+      case 'svg':
+        // Skip svg container element
+        return null;
       default:
-        // Unknown element type, try to convert to path
-        return "PathElement(d: '', animation: null)";
+        // Unknown element type, skip it
+        return null;
     }
   }
 
-  String _generatePathElement(ElementData element) {
+  /// Generate default animation with staggered delay
+  String _defaultAnimation(int index) {
+    final delay = index * 50; // 50ms stagger per element
+    return 'PathLengthAnimation(from: 0, to: 1, duration: Duration(milliseconds: 400), delay: Duration(milliseconds: $delay), curve: Curves.easeOut)';
+  }
+
+  String _generatePathElement(ElementData element, int index) {
     final d = element.attributes['d'] as String? ?? '';
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
-        : null;
+        : _defaultAnimation(index);
 
-    if (animation != null) {
-      return "PathElement(d: '$d', animation: $animation)";
-    }
-    return "PathElement(d: '$d')";
+    return "PathElement(d: '$d', animation: $animation)";
   }
 
-  String _generateCircleElement(ElementData element) {
+  String _generateCircleElement(ElementData element, int index) {
     final cx = element.attributes['cx'] ?? 0;
     final cy = element.attributes['cy'] ?? 0;
     final r = element.attributes['r'] ?? 0;
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
-        : null;
+        : _defaultAnimation(index);
 
-    if (animation != null) {
-      return 'CircleElement(cx: $cx, cy: $cy, r: $r, animation: $animation)';
-    }
-    return 'CircleElement(cx: $cx, cy: $cy, r: $r)';
+    return 'CircleElement(cx: $cx, cy: $cy, r: $r, animation: $animation)';
   }
 
-  String _generateRectElement(ElementData element) {
+  String _generateRectElement(ElementData element, int index) {
     final x = element.attributes['x'] ?? 0;
     final y = element.attributes['y'] ?? 0;
     final width = element.attributes['width'] ?? 0;
@@ -100,39 +111,30 @@ class Generator {
     final ry = element.attributes['ry'] ?? 0;
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
-        : null;
+        : _defaultAnimation(index);
 
-    if (animation != null) {
-      return 'RectElement(x: $x, y: $y, width: $width, height: $height, rx: $rx, ry: $ry, animation: $animation)';
-    }
-    return 'RectElement(x: $x, y: $y, width: $width, height: $height, rx: $rx, ry: $ry)';
+    return 'RectElement(x: $x, y: $y, width: $width, height: $height, rx: $rx, ry: $ry, animation: $animation)';
   }
 
-  String _generateLineElement(ElementData element) {
+  String _generateLineElement(ElementData element, int index) {
     final x1 = element.attributes['x1'] ?? 0;
     final y1 = element.attributes['y1'] ?? 0;
     final x2 = element.attributes['x2'] ?? 0;
     final y2 = element.attributes['y2'] ?? 0;
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
-        : null;
+        : _defaultAnimation(index);
 
-    if (animation != null) {
-      return 'LineElement(x1: $x1, y1: $y1, x2: $x2, y2: $y2, animation: $animation)';
-    }
-    return 'LineElement(x1: $x1, y1: $y1, x2: $x2, y2: $y2)';
+    return 'LineElement(x1: $x1, y1: $y1, x2: $x2, y2: $y2, animation: $animation)';
   }
 
-  String _generatePolylineElement(ElementData element) {
+  String _generatePolylineElement(ElementData element, int index) {
     final points = element.attributes['points'] as String? ?? '';
     final animation = element.animation != null
         ? _generateAnimation(element.animation!)
-        : null;
+        : _defaultAnimation(index);
 
-    if (animation != null) {
-      return "PolylineElement(points: '$points', animation: $animation)";
-    }
-    return "PolylineElement(points: '$points')";
+    return "PolylineElement(points: '$points', animation: $animation)";
   }
 
   /// Generate animation code from animation data
@@ -293,7 +295,7 @@ class Generator {
 
     for (final name in iconNames) {
       final fileName = name.replaceAll('-', '_');
-      buffer.writeln("export '$fileName.g.dart';");
+      buffer.writeln("export 'icons/$fileName.g.dart';");
     }
 
     return buffer.toString();

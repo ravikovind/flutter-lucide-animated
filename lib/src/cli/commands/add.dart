@@ -113,16 +113,17 @@ class AddCommand extends Command<void> {
         }
       }
 
-      // Generate barrel export file
+      // Generate barrel export file (one level up from icons folder)
       if (addedIcons.isNotEmpty) {
-        // Read existing barrel file to get previously added icons
-        final barrelPath = path.join(outputDir, 'lucide_animated.g.dart');
+        // Barrel file goes in parent directory of icons
+        final parentDir = path.dirname(outputDir);
+        final barrelPath = path.join(parentDir, 'lucide_animated.dart');
         final barrelFile = File(barrelPath);
         final existingIcons = <String>[];
 
         if (barrelFile.existsSync()) {
           final content = barrelFile.readAsStringSync();
-          final exportRegex = RegExp(r"export '(.+)\.g\.dart';");
+          final exportRegex = RegExp(r"export 'icons/(.+)\.g\.dart';");
           for (final match in exportRegex.allMatches(content)) {
             existingIcons.add(match.group(1)!.replaceAll('_', '-'));
           }
@@ -142,9 +143,17 @@ class AddCommand extends Command<void> {
       }
 
       if (addedIcons.isNotEmpty) {
+        // Get parent directory for barrel file path
+        final parentDir = path.dirname(outputDir);
         stdout.writeln('');
         stdout.writeln('Usage:');
-        stdout.writeln("  import 'package:your_app/$outputDir/lucide_animated.g.dart';");
+        // Show appropriate import based on output path
+        if (parentDir.startsWith('lib/')) {
+          final importPath = parentDir.substring(4); // Remove 'lib/' prefix
+          stdout.writeln("  import 'package:your_app/$importPath/lucide_animated.dart';");
+        } else {
+          stdout.writeln("  import '$parentDir/lucide_animated.dart';");
+        }
         stdout.writeln('');
         stdout.writeln('  LucideAnimatedIcon(icon: ${addedIcons.first.replaceAll('-', '_')})');
       }

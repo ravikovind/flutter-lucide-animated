@@ -59,7 +59,9 @@ class AddCommand extends Command<void> {
         stdout.writeln('Found ${registry.total} icons');
 
         // Warning for large number of icons
-        stdout.write('This will add ${iconsToAdd.length} icons. Continue? [y/N] ');
+        stdout.write(
+          'This will add ${iconsToAdd.length} icons. Continue? [y/N] ',
+        );
         final response = stdin.readLineSync()?.toLowerCase();
         if (response != 'y' && response != 'yes') {
           stdout.writeln('Cancelled');
@@ -91,7 +93,9 @@ class AddCommand extends Command<void> {
           final file = File(filePath);
 
           if (file.existsSync() && !force) {
-            stdout.writeln('skipped (already exists, use --force to overwrite)');
+            stdout.writeln(
+              'skipped (already exists, use --force to overwrite)',
+            );
             continue;
           }
 
@@ -113,16 +117,17 @@ class AddCommand extends Command<void> {
         }
       }
 
-      // Generate barrel export file
+      // Generate barrel export file (one level up from icons folder)
       if (addedIcons.isNotEmpty) {
-        // Read existing barrel file to get previously added icons
-        final barrelPath = path.join(outputDir, 'lucide_animated.g.dart');
+        // Barrel file goes in parent directory of icons
+        final parentDir = path.dirname(outputDir);
+        final barrelPath = path.join(parentDir, 'lucide_animated.dart');
         final barrelFile = File(barrelPath);
         final existingIcons = <String>[];
 
         if (barrelFile.existsSync()) {
           final content = barrelFile.readAsStringSync();
-          final exportRegex = RegExp(r"export '(.+)\.g\.dart';");
+          final exportRegex = RegExp(r"export 'icons/(.+)\.g\.dart';");
           for (final match in exportRegex.allMatches(content)) {
             existingIcons.add(match.group(1)!.replaceAll('_', '-'));
           }
@@ -142,11 +147,23 @@ class AddCommand extends Command<void> {
       }
 
       if (addedIcons.isNotEmpty) {
+        // Get parent directory for barrel file path
+        final parentDir = path.dirname(outputDir);
         stdout.writeln('');
         stdout.writeln('Usage:');
-        stdout.writeln("  import 'package:your_app/$outputDir/lucide_animated.g.dart';");
+        // Show appropriate import based on output path
+        if (parentDir.startsWith('lib/')) {
+          final importPath = parentDir.substring(4); // Remove 'lib/' prefix
+          stdout.writeln(
+            "  import 'package:your_app/$importPath/lucide_animated.dart';",
+          );
+        } else {
+          stdout.writeln("  import '$parentDir/lucide_animated.dart';");
+        }
         stdout.writeln('');
-        stdout.writeln('  LucideAnimatedIcon(icon: ${addedIcons.first.replaceAll('-', '_')})');
+        stdout.writeln(
+          '  LucideAnimatedIcon(icon: ${addedIcons.first.replaceAll('-', '_')})',
+        );
       }
     } finally {
       fetcher.dispose();

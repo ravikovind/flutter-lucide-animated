@@ -170,10 +170,7 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
 
     // Wrap with gesture/mouse handlers based on trigger
     if (widget.trigger == AnimationTrigger.onTap || widget.onTap != null) {
-      child = GestureDetector(
-        onTap: _handleTap,
-        child: child,
-      );
+      child = GestureDetector(onTap: _handleTap, child: child);
     }
 
     if (widget.trigger == AnimationTrigger.onHover) {
@@ -251,10 +248,14 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
           opacity = from + (to - from) * curvedValue;
         case CombinedAnimation(:final pathLength, opacity: final opacityAnim):
           if (pathLength != null) {
-            progress = pathLength.from + (pathLength.to - pathLength.from) * curvedValue;
+            progress =
+                pathLength.from +
+                (pathLength.to - pathLength.from) * curvedValue;
           }
           if (opacityAnim != null) {
-            opacity = opacityAnim.from + (opacityAnim.to - opacityAnim.from) * curvedValue;
+            opacity =
+                opacityAnim.from +
+                (opacityAnim.to - opacityAnim.from) * curvedValue;
           }
         default:
           break;
@@ -273,8 +274,6 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
       ),
     );
   }
-
-  double opacity = 1.0;
 
   Widget _buildCircleElement(
     double cx,
@@ -346,7 +345,12 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
     final curvedValue = curve.transform(_animationController.value);
 
     switch (animation) {
-      case TranslateAnimation(:final fromX, :final toX, :final fromY, :final toY):
+      case TranslateAnimation(
+        :final fromX,
+        :final toX,
+        :final fromY,
+        :final toY,
+      ):
         final dx = fromX + (toX - fromX) * curvedValue;
         final dy = fromY + (toY - fromY) * curvedValue;
         final scale = widget.size / widget.icon.viewBoxWidth;
@@ -384,6 +388,10 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
         final scale = from + (to - from) * curvedValue;
         return Transform.scale(scale: scale, child: child);
 
+      case ScaleKeyframeAnimation(:final keyframes):
+        final scale = _interpolateKeyframes(keyframes, curvedValue);
+        return Transform.scale(scale: scale, child: child);
+
       default:
         return child;
     }
@@ -415,6 +423,10 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
 
       case ScaleAnimation(:final from, :final to):
         final scale = from + (to - from) * curvedValue;
+        return Transform.scale(scale: scale, child: child);
+
+      case ScaleKeyframeAnimation(:final keyframes):
+        final scale = _interpolateKeyframes(keyframes, curvedValue);
         return Transform.scale(scale: scale, child: child);
 
       default:

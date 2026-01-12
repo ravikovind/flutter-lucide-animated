@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
+import 'lucide_animated/lucide_animated.dart' as icons;
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,188 +11,597 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lucide Animated - Package Test',
+      title: 'Lucide Animated Icons',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true),
-      home: const HomePage(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color(0xFF0a0a0a),
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFFf97316),
+          surface: Color(0xFF0a0a0a),
+        ),
+      ),
+      home: const IconGallery(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+// All available icons
+final List<(String, LucideAnimatedIconData)> _allIcons = [
+  ('a_arrow_down', icons.a_arrow_down),
+  ('a_arrow_up', icons.a_arrow_up),
+  ('accessibility', icons.accessibility),
+  ('activity', icons.activity),
+  ('airplane', icons.airplane),
+  ('airplay', icons.airplay),
+  ('air_vent', icons.air_vent),
+  ('align_center', icons.align_center),
+  ('align_horizontal', icons.align_horizontal),
+  ('align_left', icons.align_left),
+  ('align_right', icons.align_right),
+  ('align_vertical', icons.align_vertical),
+  ('angry', icons.angry),
+  ('annoyed', icons.annoyed),
+  ('archive', icons.archive),
+  ('arrow_big_down', icons.arrow_big_down),
+  ('arrow_big_down_dash', icons.arrow_big_down_dash),
+  ('arrow_big_left', icons.arrow_big_left),
+  ('arrow_big_left_dash', icons.arrow_big_left_dash),
+  ('arrow_big_right', icons.arrow_big_right),
+  ('arrow_big_right_dash', icons.arrow_big_right_dash),
+  ('arrow_big_up', icons.arrow_big_up),
+  ('arrow_big_up_dash', icons.arrow_big_up_dash),
+  ('arrow_down', icons.arrow_down),
+  ('arrow_down_0_1', icons.arrow_down_0_1),
+  ('arrow_down_1_0', icons.arrow_down_1_0),
+  ('arrow_down_a_z', icons.arrow_down_a_z),
+  ('arrow_down_left', icons.arrow_down_left),
+  ('arrow_down_right', icons.arrow_down_right),
+  ('arrow_down_z_a', icons.arrow_down_z_a),
+  ('arrow_left', icons.arrow_left),
+  ('arrow_right', icons.arrow_right),
+  ('arrow_up', icons.arrow_up),
+  ('arrow_up_left', icons.arrow_up_left),
+  ('arrow_up_right', icons.arrow_up_right),
+  ('atom', icons.atom),
+  ('at_sign', icons.at_sign),
+  ('attach_file', icons.attach_file),
+  ('audio_lines', icons.audio_lines),
+  ('badge_alert', icons.badge_alert),
+  ('badge_percent', icons.badge_percent),
+  ('ban', icons.ban),
+  ('banana', icons.banana),
+  ('battery', icons.battery),
+  ('battery_charging', icons.battery_charging),
+  ('battery_full', icons.battery_full),
+  ('battery_low', icons.battery_low),
+  ('battery_medium', icons.battery_medium),
+  ('battery_plus', icons.battery_plus),
+  ('battery_warning', icons.battery_warning),
+  ('bell', icons.bell),
+  ('bell_electric', icons.bell_electric),
+  ('blocks', icons.blocks),
+  ('bluetooth', icons.bluetooth),
+  ('bluetooth_connected', icons.bluetooth_connected),
+  ('bluetooth_off', icons.bluetooth_off),
+  ('bluetooth_searching', icons.bluetooth_searching),
+  ('bold', icons.bold),
+  ('bone', icons.bone),
+  ('bookmark', icons.bookmark),
+  ('bookmark_check', icons.bookmark_check),
+  ('bookmark_minus', icons.bookmark_minus),
+  ('bookmark_plus', icons.bookmark_plus),
+  ('bookmark_x', icons.bookmark_x),
+  ('book_text', icons.book_text),
+  ('bot', icons.bot),
+  ('bot_message_square', icons.bot_message_square),
+  ('box', icons.box),
+  ('boxes', icons.boxes),
+  ('calendar_check', icons.calendar_check),
+  ('calendar_check_2', icons.calendar_check_2),
+  ('calendar_cog', icons.calendar_cog),
+  ('calendar_days', icons.calendar_days),
+  ('cart', icons.cart),
+  ('cast', icons.cast),
+  ('cctv', icons.cctv),
+  ('chart_bar_decreasing', icons.chart_bar_decreasing),
+  ('chart_bar_increasing', icons.chart_bar_increasing),
+  ('chart_column_decreasing', icons.chart_column_decreasing),
+  ('chart_column_increasing', icons.chart_column_increasing),
+  ('chart_line', icons.chart_line),
+  ('chart_no_axes_column_decreasing', icons.chart_no_axes_column_decreasing),
+  ('chart_no_axes_column_increasing', icons.chart_no_axes_column_increasing),
+  ('chart_pie', icons.chart_pie),
+  ('chart_scatter', icons.chart_scatter),
+  ('chart_spline', icons.chart_spline),
+  ('check', icons.check),
+  ('check_check', icons.check_check),
+  ('chevron_down', icons.chevron_down),
+  ('chevron_first', icons.chevron_first),
+  ('chevron_left', icons.chevron_left),
+  ('chevron_right', icons.chevron_right),
+  ('chevrons_down_up', icons.chevrons_down_up),
+  ('chevrons_left_right', icons.chevrons_left_right),
+  ('chevrons_right_left', icons.chevrons_right_left),
+  ('chevrons_up_down', icons.chevrons_up_down),
+  ('chevron_up', icons.chevron_up),
+  ('circle_check', icons.circle_check),
+  ('circle_chevron_down', icons.circle_chevron_down),
+  ('circle_chevron_left', icons.circle_chevron_left),
+  ('circle_chevron_right', icons.circle_chevron_right),
+  ('circle_chevron_up', icons.circle_chevron_up),
+  ('circle_dashed', icons.circle_dashed),
+  ('circle_dollar_sign', icons.circle_dollar_sign),
+  ('circle_help', icons.circle_help),
+  ('clap', icons.clap),
+  ('clipboard_check', icons.clipboard_check),
+  ('clock', icons.clock),
+  ('cloud_cog', icons.cloud_cog),
+  ('cloud_download', icons.cloud_download),
+  ('cloud_lightning', icons.cloud_lightning),
+  ('cloud_rain', icons.cloud_rain),
+  ('cloud_rain_wind', icons.cloud_rain_wind),
+  ('cloud_snow', icons.cloud_snow),
+  ('cloud_sun', icons.cloud_sun),
+  ('cloud_upload', icons.cloud_upload),
+  ('coffee', icons.coffee),
+  ('cog', icons.cog),
+  ('compass', icons.compass),
+  ('connect', icons.connect),
+  ('construction', icons.construction),
+  ('contrast', icons.contrast),
+  ('cooking_pot', icons.cooking_pot),
+  ('copy', icons.copy),
+  ('corner_down_left', icons.corner_down_left),
+  ('corner_down_right', icons.corner_down_right),
+  ('corner_left_down', icons.corner_left_down),
+  ('corner_left_up', icons.corner_left_up),
+  ('corner_right_down', icons.corner_right_down),
+  ('corner_right_up', icons.corner_right_up),
+  ('corner_up_left', icons.corner_up_left),
+  ('corner_up_right', icons.corner_up_right),
+  ('cpu', icons.cpu),
+  ('cursor_click', icons.cursor_click),
+  ('delete', icons.delete),
+  ('discord', icons.discord),
+  ('dollar_sign', icons.dollar_sign),
+  ('download', icons.download),
+  ('downvote', icons.downvote),
+  ('dribbble', icons.dribbble),
+  ('droplet', icons.droplet),
+  ('drum', icons.drum),
+  ('earth', icons.earth),
+  ('euro', icons.euro),
+  ('ev_charger', icons.ev_charger),
+  ('expand', icons.expand),
+  ('eye', icons.eye),
+  ('eye_off', icons.eye_off),
+  ('facebook', icons.facebook),
+  ('feather', icons.feather),
+  ('figma', icons.figma),
+  ('file_chart_line', icons.file_chart_line),
+  ('file_check', icons.file_check),
+  ('file_check_2', icons.file_check_2),
+  ('file_cog', icons.file_cog),
+  ('file_pen_line', icons.file_pen_line),
+  ('file_stack', icons.file_stack),
+  ('file_text', icons.file_text),
+  ('fingerprint', icons.fingerprint),
+  ('fish_symbol', icons.fish_symbol),
+  ('flame', icons.flame),
+  ('flask', icons.flask),
+  ('folder_archive', icons.folder_archive),
+  ('folder_check', icons.folder_check),
+  ('folder_clock', icons.folder_clock),
+  ('folder_code', icons.folder_code),
+  ('folder_cog', icons.folder_cog),
+  ('folder_dot', icons.folder_dot),
+  ('folder_down', icons.folder_down),
+  ('folder_git', icons.folder_git),
+  ('folder_git_2', icons.folder_git_2),
+  ('folder_heart', icons.folder_heart),
+  ('folder_input', icons.folder_input),
+  ('folder_kanban', icons.folder_kanban),
+  ('folder_key', icons.folder_key),
+  ('folder_lock', icons.folder_lock),
+  ('folder_minus', icons.folder_minus),
+  ('folder_open', icons.folder_open),
+  ('folder_output', icons.folder_output),
+  ('folder_plus', icons.folder_plus),
+  ('folder_root', icons.folder_root),
+  ('folders', icons.folders),
+  ('folder_sync', icons.folder_sync),
+  ('folder_tree', icons.folder_tree),
+  ('folder_up', icons.folder_up),
+  ('folder_x', icons.folder_x),
+  ('frame', icons.frame),
+  ('frown', icons.frown),
+  ('gallery_horizontal_end', icons.gallery_horizontal_end),
+  ('gallery_thumbnails', icons.gallery_thumbnails),
+  ('gallery_vertical_end', icons.gallery_vertical_end),
+  ('gauge', icons.gauge),
+  ('georgian_lari', icons.georgian_lari),
+  ('git_branch', icons.git_branch),
+  ('git_commit_horizontal', icons.git_commit_horizontal),
+  ('git_commit_vertical', icons.git_commit_vertical),
+  ('git_compare', icons.git_compare),
+  ('git_compare_arrows', icons.git_compare_arrows),
+  ('git_fork', icons.git_fork),
+  ('git_graph', icons.git_graph),
+  ('github', icons.github),
+  ('gitlab', icons.gitlab),
+  ('git_merge', icons.git_merge),
+  ('git_pull_request', icons.git_pull_request),
+  ('git_pull_request_closed', icons.git_pull_request_closed),
+  ('git_pull_request_create', icons.git_pull_request_create),
+  ('grip', icons.grip),
+  ('grip_horizontal', icons.grip_horizontal),
+  ('grip_vertical', icons.grip_vertical),
+  ('hand', icons.hand),
+  ('hand_coins', icons.hand_coins),
+  ('hand_fist', icons.hand_fist),
+  ('hand_grab', icons.hand_grab),
+  ('hand_heart', icons.hand_heart),
+  ('hand_helping', icons.hand_helping),
+  ('hand_metal', icons.hand_metal),
+  ('hard_drive_download', icons.hard_drive_download),
+  ('hard_drive_upload', icons.hard_drive_upload),
+  ('heart', icons.heart),
+  ('heart_handshake', icons.heart_handshake),
+  ('history', icons.history),
+  ('home', icons.home),
+  ('hourglass', icons.hourglass),
+  ('id_card', icons.id_card),
+  ('indian_rupee', icons.indian_rupee),
+  ('instagram', icons.instagram),
+  ('italic', icons.italic),
+  ('japanese_yen', icons.japanese_yen),
+  ('key', icons.key),
+  ('keyboard', icons.keyboard),
+  ('key_circle', icons.key_circle),
+  ('key_square', icons.key_square),
+  ('languages', icons.languages),
+  ('laptop_minimal_check', icons.laptop_minimal_check),
+  ('laugh', icons.laugh),
+  ('layers', icons.layers),
+  ('layout_panel_top', icons.layout_panel_top),
+  ('link', icons.link),
+  ('linkedin', icons.linkedin),
+  ('loader_pinwheel', icons.loader_pinwheel),
+  ('lock', icons.lock),
+  ('lock_keyhole', icons.lock_keyhole),
+  ('lock_keyhole_open', icons.lock_keyhole_open),
+  ('lock_open', icons.lock_open),
+  ('logout', icons.logout),
+  ('mail_check', icons.mail_check),
+  ('map_pin', icons.map_pin),
+  ('map_pin_check', icons.map_pin_check),
+  ('map_pin_check_inside', icons.map_pin_check_inside),
+  ('map_pin_house', icons.map_pin_house),
+  ('map_pin_minus', icons.map_pin_minus),
+  ('map_pin_minus_inside', icons.map_pin_minus_inside),
+  ('map_pin_off', icons.map_pin_off),
+  ('map_pin_plus', icons.map_pin_plus),
+  ('map_pin_plus_inside', icons.map_pin_plus_inside),
+  ('map_pin_x_inside', icons.map_pin_x_inside),
+  ('maximize', icons.maximize),
+  ('maximize_2', icons.maximize_2),
+  ('meh', icons.meh),
+  ('menu', icons.menu),
+  ('message_circle', icons.message_circle),
+  ('message_circle_dashed', icons.message_circle_dashed),
+  ('message_circle_more', icons.message_circle_more),
+  ('message_square', icons.message_square),
+  ('message_square_dashed', icons.message_square_dashed),
+  ('message_square_more', icons.message_square_more),
+  ('mic', icons.mic),
+  ('mic_off', icons.mic_off),
+  ('minimize', icons.minimize),
+  ('monitor_check', icons.monitor_check),
+  ('moon', icons.moon),
+  ('nfc', icons.nfc),
+  ('panel_left_close', icons.panel_left_close),
+  ('panel_left_open', icons.panel_left_open),
+  ('panel_right_open', icons.panel_right_open),
+  ('party_popper', icons.party_popper),
+  ('pen_tool', icons.pen_tool),
+  ('philippine_peso', icons.philippine_peso),
+  ('play', icons.play),
+  ('plug_zap', icons.plug_zap),
+  ('plus', icons.plus),
+  ('pound_sterling', icons.pound_sterling),
+  ('rabbit', icons.rabbit),
+  ('radio', icons.radio),
+  ('radio_tower', icons.radio_tower),
+  ('redo', icons.redo),
+  ('redo_dot', icons.redo_dot),
+  ('refresh_ccw', icons.refresh_ccw),
+  ('refresh_ccw_dot', icons.refresh_ccw_dot),
+  ('refresh_cw', icons.refresh_cw),
+  ('refresh_cw_off', icons.refresh_cw_off),
+  ('rocket', icons.rocket),
+  ('rocking_chair', icons.rocking_chair),
+  ('roller_coaster', icons.roller_coaster),
+  ('rotate_ccw', icons.rotate_ccw),
+  ('rotate_cw', icons.rotate_cw),
+  ('route', icons.route),
+  ('russian_ruble', icons.russian_ruble),
+  ('saudi_riyal', icons.saudi_riyal),
+  ('scan_face', icons.scan_face),
+  ('scan_text', icons.scan_text),
+  ('search', icons.search),
+  ('settings', icons.settings),
+  ('shield_check', icons.shield_check),
+  ('ship', icons.ship),
+  ('shower_head', icons.shower_head),
+  ('shrink', icons.shrink),
+  ('sliders_horizontal', icons.sliders_horizontal),
+  ('smartphone_charging', icons.smartphone_charging),
+  ('smartphone_nfc', icons.smartphone_nfc),
+  ('smile', icons.smile),
+  ('smile_plus', icons.smile_plus),
+  ('snowflake', icons.snowflake),
+  ('sparkles', icons.sparkles),
+  ('square_activity', icons.square_activity),
+  ('square_arrow_down', icons.square_arrow_down),
+  ('square_arrow_left', icons.square_arrow_left),
+  ('square_arrow_right', icons.square_arrow_right),
+  ('square_arrow_up', icons.square_arrow_up),
+  ('square_chevron_down', icons.square_chevron_down),
+  ('square_chevron_left', icons.square_chevron_left),
+  ('square_chevron_right', icons.square_chevron_right),
+  ('square_chevron_up', icons.square_chevron_up),
+  ('square_pen', icons.square_pen),
+  ('square_stack', icons.square_stack),
+  ('stethoscope', icons.stethoscope),
+  ('sun', icons.sun),
+  ('sun_dim', icons.sun_dim),
+  ('sun_medium', icons.sun_medium),
+  ('sun_moon', icons.sun_moon),
+  ('sunset', icons.sunset),
+  ('swiss_franc', icons.swiss_franc),
+  ('syringe', icons.syringe),
+  ('telescope', icons.telescope),
+  ('terminal', icons.terminal),
+  ('thermometer', icons.thermometer),
+  ('timer', icons.timer),
+  ('tornado', icons.tornado),
+  ('trending_down', icons.trending_down),
+  ('trending_up', icons.trending_up),
+  ('trending_up_down', icons.trending_up_down),
+  ('truck', icons.truck),
+  ('turkish_lira', icons.turkish_lira),
+  ('twitch', icons.twitch),
+  ('twitter', icons.twitter),
+  ('underline', icons.underline),
+  ('undo', icons.undo),
+  ('undo_dot', icons.undo_dot),
+  ('upload', icons.upload),
+  ('upvote', icons.upvote),
+  ('user', icons.user),
+  ('user_check', icons.user_check),
+  ('user_round_check', icons.user_round_check),
+  ('user_round_plus', icons.user_round_plus),
+  ('users', icons.users),
+  ('vibrate', icons.vibrate),
+  ('volume', icons.volume),
+  ('washing_machine', icons.washing_machine),
+  ('waves', icons.waves),
+  ('waves_ladder', icons.waves_ladder),
+  ('waypoints', icons.waypoints),
+  ('wifi', icons.wifi),
+  ('wind', icons.wind),
+  ('wind_arrow_down', icons.wind_arrow_down),
+  ('wrench', icons.wrench),
+  ('x', icons.x),
+  ('youtube', icons.youtube),
+  ('zap', icons.zap),
+  ('zap_off', icons.zap_off),
+];
+
+class IconGallery extends StatefulWidget {
+  const IconGallery({super.key});
+
+  @override
+  State<IconGallery> createState() => _IconGalleryState();
+}
+
+class _IconGalleryState extends State<IconGallery> {
+  String _searchQuery = '';
+
+  List<(String, LucideAnimatedIconData)> get _filteredIcons {
+    if (_searchQuery.isEmpty) return _allIcons;
+    final query = _searchQuery.toLowerCase();
+    return _allIcons
+        .where((icon) => icon.$1.toLowerCase().contains(query))
+        .toList();
+  }
+
+  void _copyToClipboard(String name) {
+    Clipboard.setData(ClipboardData(text: name));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Copied "$name" to clipboard'),
+        duration: const Duration(seconds: 1),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: const Color(0xFF262626),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Lucide Animated')),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _SectionTitle('1. Flame - pathLength (onTap)'),
-            _IconRow(
-              icon: flame,
-              color: Colors.orange,
-              trigger: AnimationTrigger.onTap,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 48, 24, 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Lucide Animated',
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${_allIcons.length} beautifully animated icons for Flutter',
+                  style: TextStyle(fontSize: 16, color: Colors.grey[400]),
+                ),
+                const SizedBox(height: 24),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1a1a1a),
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: const Color(0xFF262626)),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'flutter pub add flutter_lucide_animated',
+                          style: TextStyle(
+                            fontFamily: 'monospace',
+                            fontSize: 14,
+                            color: Colors.grey[300],
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.copy, size: 18),
+                        color: Colors.grey[500],
+                        onPressed: () => _copyToClipboard(
+                          'flutter pub add flutter_lucide_animated',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                TextField(
+                  onChanged: (value) => setState(() => _searchQuery = value),
+                  decoration: InputDecoration(
+                    hintText: 'Search ${_allIcons.length} icons...',
+                    hintStyle: TextStyle(color: Colors.grey[600]),
+                    prefixIcon: Icon(Icons.search, color: Colors.grey[600]),
+                    filled: true,
+                    fillColor: const Color(0xFF1a1a1a),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Color(0xFF262626)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Color(0xFF262626)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Color(0xFFf97316)),
+                    ),
+                  ),
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
             ),
-            const SizedBox(height: 32),
-
-            _SectionTitle('2. Check - pathLength (onTap)'),
-            _IconRow(
-              icon: check,
-              color: Colors.green,
-              trigger: AnimationTrigger.onTap,
+          ),
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.all(24),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 120,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 1.0,
+              ),
+              itemCount: _filteredIcons.length,
+              itemBuilder: (context, index) {
+                final (name, iconData) = _filteredIcons[index];
+                return _IconCard(
+                  name: name,
+                  iconData: iconData,
+                  onTap: () => _copyToClipboard(name),
+                );
+              },
             ),
-            const SizedBox(height: 32),
-
-            _SectionTitle('3. Settings - rotate (onHover)'),
-            _IconRow(
-              icon: settings,
-              color: Colors.grey.shade300,
-              trigger: AnimationTrigger.onHover,
-            ),
-            const SizedBox(height: 32),
-
-            _SectionTitle('4. Bell - shake keyframes (onHover)'),
-            _IconRow(
-              icon: bell,
-              color: Colors.yellow.shade300,
-              trigger: AnimationTrigger.onHover,
-            ),
-            const SizedBox(height: 32),
-
-            _SectionTitle('5. Arrow Right - translate (onHover)'),
-            _IconRow(
-              icon: arrow_right,
-              color: Colors.blue.shade300,
-              trigger: AnimationTrigger.onHover,
-            ),
-            const SizedBox(height: 32),
-
-            _SectionTitle('6. Copy - multi-element (onHover)'),
-            _IconRow(
-              icon: copy,
-              color: Colors.purple.shade300,
-              trigger: AnimationTrigger.onHover,
-            ),
-            const SizedBox(height: 32),
-
-            _SectionTitle('7. Manual Controller'),
-            const _ManualControllerDemo(),
-            const SizedBox(height: 32),
-
-            _SectionTitle('8. Loop Animation'),
-            _IconRow(
-              icon: settings,
-              color: Colors.teal,
-              trigger: AnimationTrigger.loop,
-            ),
-            const SizedBox(height: 48),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _SectionTitle extends StatelessWidget {
-  final String title;
-  const _SectionTitle(this.title);
+class _IconCard extends StatefulWidget {
+  final String name;
+  final LucideAnimatedIconData iconData;
+  final VoidCallback onTap;
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-      ),
-    );
-  }
-}
-
-class _IconRow extends StatelessWidget {
-  final LucideAnimatedIconData icon;
-  final Color color;
-  final AnimationTrigger trigger;
-
-  const _IconRow({
-    required this.icon,
-    required this.color,
-    required this.trigger,
+  const _IconCard({
+    required this.name,
+    required this.iconData,
+    required this.onTap,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final triggerText = switch (trigger) {
-      AnimationTrigger.onTap => 'Tap to animate',
-      AnimationTrigger.onHover => 'Hover to animate',
-      AnimationTrigger.loop => 'Looping',
-      AnimationTrigger.manual => 'Manual control',
-    };
-
-    return Row(
-      children: [
-        LucideAnimatedIcon(
-          icon: icon,
-          size: 64,
-          color: color,
-          trigger: trigger,
-        ),
-        const SizedBox(width: 16),
-        Text(triggerText),
-      ],
-    );
-  }
+  State<_IconCard> createState() => _IconCardState();
 }
 
-class _ManualControllerDemo extends StatefulWidget {
-  const _ManualControllerDemo();
-
-  @override
-  State<_ManualControllerDemo> createState() => _ManualControllerDemoState();
-}
-
-class _ManualControllerDemoState extends State<_ManualControllerDemo> {
-  final _controller = LucideAnimatedIconController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+class _IconCardState extends State<_IconCard> {
+  bool _isHovered = false;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        LucideAnimatedIcon(
-          icon: flame,
-          size: 64,
-          color: Colors.red,
-          trigger: AnimationTrigger.manual,
-          controller: _controller,
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: _isHovered
+                ? const Color(0xFF1a1a1a)
+                : const Color(0xFF0f0f0f),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: _isHovered
+                  ? const Color(0xFF404040)
+                  : const Color(0xFF262626),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              LucideAnimatedIcon(
+                icon: widget.iconData,
+                size: 28,
+                color: _isHovered ? const Color(0xFFf97316) : Colors.white,
+                trigger: AnimationTrigger.onHover,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                widget.name.replaceAll('_', '-'),
+                style: TextStyle(
+                  fontSize: 9,
+                  color: _isHovered ? Colors.white : Colors.grey[500],
+                ),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
-        const SizedBox(width: 16),
-        ElevatedButton(
-          onPressed: () => _controller.animate(),
-          child: const Text('Play'),
-        ),
-        const SizedBox(width: 8),
-        ElevatedButton(
-          onPressed: () => _controller.reverse(),
-          child: const Text('Reverse'),
-        ),
-        const SizedBox(width: 8),
-        ElevatedButton(
-          onPressed: () => _controller.reset(),
-          child: const Text('Reset'),
-        ),
-      ],
+      ),
     );
   }
 }

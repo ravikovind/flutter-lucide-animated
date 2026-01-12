@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 /// CDN base URL for fetching icon data
-const String cdnBaseURL = 'https://ravikovind.github.io/flutter-lucide-animated/v1';
+const String cdnBaseURL =
+    'https://ravikovind.github.io/flutter-lucide-animated/v1';
 
 /// Registry data containing list of available icons
 class Registry {
@@ -69,11 +70,7 @@ class ElementData {
   final Map<String, dynamic> attributes;
   final Map<String, dynamic>? animation;
 
-  ElementData({
-    required this.type,
-    required this.attributes,
-    this.animation,
-  });
+  ElementData({required this.type, required this.attributes, this.animation});
 
   factory ElementData.fromJson(Map<String, dynamic> json) {
     final type = json['type'] as String;
@@ -98,8 +95,8 @@ class Fetcher {
   final String baseUrl;
 
   Fetcher({http.Client? client, String? baseUrl})
-      : _client = client ?? http.Client(),
-        baseUrl = baseUrl ?? cdnBaseURL;
+    : _client = client ?? http.Client(),
+      baseUrl = baseUrl ?? cdnBaseURL;
 
   /// Fetch the registry of available icons
   Future<Registry> fetchRegistry() async {

@@ -50,7 +50,16 @@ class PathCache {
   /// Parse SVG path string to Flutter Path
   static Path _parsePath(String svgPath) {
     final path = Path();
-    writeSvgPathDataToPath(svgPath, _FlutterPathProxy(path));
+    // Skip empty or whitespace-only paths
+    if (svgPath.trim().isEmpty) {
+      return path;
+    }
+    try {
+      writeSvgPathDataToPath(svgPath, _FlutterPathProxy(path));
+    } catch (e) {
+      // Return empty path for invalid SVG path data
+      // This handles malformed paths gracefully
+    }
     return path;
   }
 }
@@ -72,8 +81,7 @@ class _FlutterPathProxy implements PathProxy {
     double y2,
     double x3,
     double y3,
-  ) =>
-      path.cubicTo(x1, y1, x2, y2, x3, y3);
+  ) => path.cubicTo(x1, y1, x2, y2, x3, y3);
 
   @override
   void lineTo(double x, double y) => path.lineTo(x, y);

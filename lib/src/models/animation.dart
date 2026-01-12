@@ -120,6 +120,19 @@ class ScaleAnimation extends ElementAnimation {
   });
 }
 
+/// Keyframe scale animation
+/// Example: [1, 0.85, 1] for pulse effect
+class ScaleKeyframeAnimation extends ElementAnimation {
+  final List<double> keyframes;
+
+  const ScaleKeyframeAnimation({
+    required this.keyframes,
+    super.duration = const Duration(milliseconds: 400),
+    super.delay,
+    super.curve,
+  });
+}
+
 /// Combined animation for elements that have multiple properties animated
 class CombinedAnimation extends ElementAnimation {
   final PathLengthAnimation? pathLength;

@@ -6,14 +6,15 @@ import 'package:flutter_lucide_animated/src/cli/commands/remove.dart';
 import 'package:flutter_lucide_animated/src/cli/commands/update.dart';
 
 void main(List<String> arguments) async {
-  final runner = CommandRunner<void>(
-    'flutter_lucide_animated',
-    'CLI for managing animated Lucide icons in Flutter projects',
-  )
-    ..addCommand(AddCommand())
-    ..addCommand(ListCommand())
-    ..addCommand(RemoveCommand())
-    ..addCommand(UpdateCommand());
+  final runner =
+      CommandRunner<void>(
+          'flutter_lucide_animated',
+          'CLI for managing animated Lucide icons in Flutter projects',
+        )
+        ..addCommand(AddCommand())
+        ..addCommand(ListCommand())
+        ..addCommand(RemoveCommand())
+        ..addCommand(UpdateCommand());
 
   try {
     await runner.run(arguments);

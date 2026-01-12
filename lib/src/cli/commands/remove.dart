@@ -19,11 +19,7 @@ class RemoveCommand extends Command<void> {
         help: 'Directory where icons are installed',
         defaultsTo: 'lib/lucide_animated/icons',
       )
-      ..addFlag(
-        'all',
-        help: 'Remove all installed icons',
-        negatable: false,
-      );
+      ..addFlag('all', help: 'Remove all installed icons', negatable: false);
   }
 
   @override
@@ -66,7 +62,9 @@ class RemoveCommand extends Command<void> {
         return;
       }
 
-      stdout.write('This will remove ${iconsToRemove.length} icons. Continue? [y/N] ');
+      stdout.write(
+        'This will remove ${iconsToRemove.length} icons. Continue? [y/N] ',
+      );
       final response = stdin.readLineSync()?.toLowerCase();
       if (response != 'y' && response != 'yes') {
         stdout.writeln('Cancelled');
@@ -132,8 +130,7 @@ class RemoveCommand extends Command<void> {
         final remainingIcons = files.map((f) {
           final baseName = path.basenameWithoutExtension(f.path);
           return baseName.replaceAll('.g', '').replaceAll('_', '-');
-        }).toList()
-          ..sort();
+        }).toList()..sort();
 
         final generator = Generator();
         final barrelCode = generator.generateBarrelExport(remainingIcons);

@@ -5,6 +5,8 @@ Beautiful, customizable animated Lucide icons for Flutter with on-demand CLI fet
 [![pub package](https://img.shields.io/pub/v/flutter_lucide_animated.svg)](https://pub.dev/packages/flutter_lucide_animated)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+**[Live Demo](https://ravikovind.github.io/flutter-lucide-animated/)**
+
 Bring the smooth, delightful animations from [lucide-animated](https://github.com/pqoqubbw/icons) to your Flutter apps. 370+ animated icons with multiple animation types and triggers.
 
 ## Features
@@ -42,7 +44,7 @@ dart run flutter_lucide_animated add --all
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
-import 'lucide_animated/icons/lucide_animated.g.dart';
+import 'lucide_animated/lucide_animated.dart';
 
 class MyWidget extends StatelessWidget {
   @override
@@ -213,6 +215,30 @@ Popular icons include:
 2. **CLI**: Fetches icon data and generates Dart code
 3. **Widget**: Renders animations using CustomPainter + AnimationController
 4. **Caching**: Path parsing is cached for smooth 60fps animations
+
+## Development
+
+### Build Docs (Example + Icons CDN)
+
+```bash
+# Build example for GitHub Pages
+./scripts/build-docs.sh
+
+# Sync icons from pqoqubbw/icons and build example
+./scripts/build-docs.sh --sync
+
+# Only sync icons (no example build)
+./scripts/build-docs.sh --sync --no-example
+```
+
+### Sync Icons Only
+
+```bash
+cd scripts
+npm install
+node sync.js           # Sync all icons
+node sync.js --limit 20  # Test with first 20 icons
+```
 
 ## Credits
 

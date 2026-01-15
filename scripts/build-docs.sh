@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build script for flutter_lucide_animated docs
-# Syncs icons and builds example for GitHub Pages
+# Builds example app for GitHub Pages
 
 set -e
 
@@ -16,7 +16,6 @@ echo ""
 
 # Parse arguments
 SYNC_ICONS=false
-BUILD_EXAMPLE=true
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -24,15 +23,10 @@ while [[ $# -gt 0 ]]; do
       SYNC_ICONS=true
       shift
       ;;
-    --no-example)
-      BUILD_EXAMPLE=false
-      shift
-      ;;
     *)
       echo "Unknown option: $1"
-      echo "Usage: ./build-docs.sh [--sync] [--no-example]"
-      echo "  --sync        Sync icons from pqoqubbw/icons"
-      echo "  --no-example  Skip building Flutter web example"
+      echo "Usage: ./build-docs.sh [--sync]"
+      echo "  --sync  Sync icons from pqoqubbw/icons before building"
       exit 1
       ;;
   esac
@@ -42,35 +36,29 @@ done
 if [ "$SYNC_ICONS" = true ]; then
   echo "Syncing icons..."
   cd "$SCRIPT_DIR"
+  npm install
   node sync.js
   echo ""
 fi
 
 # Build Flutter web example
-if [ "$BUILD_EXAMPLE" = true ]; then
-  echo "Building Flutter web example..."
-  cd "$EXAMPLE_DIR"
+echo "Building Flutter web example..."
+cd "$EXAMPLE_DIR"
 
-  # Clean previous build
-  flutter clean
+# Get dependencies
+flutter pub get
 
-  # Build for web with correct base href for GitHub Pages
-  flutter build web --release --base-href "/flutter-lucide-animated/"
+# Build for web with correct base href for GitHub Pages
+flutter build web --release --base-href "/flutter-lucide-animated/"
 
-  echo ""
-  echo "Copying build to docs folder..."
+echo ""
+echo "Copying build to docs folder..."
 
-  # Copy build to docs, preserving v1 folder
-  # First, remove old web build files (but keep v1)
-  find "$DOCS_DIR" -maxdepth 1 -type f -delete 2>/dev/null || true
-  rm -rf "$DOCS_DIR/assets" "$DOCS_DIR/canvaskit" "$DOCS_DIR/icons" 2>/dev/null || true
+# Clear docs folder and copy new build
+rm -rf "$DOCS_DIR"/*
+cp -r "$EXAMPLE_DIR/build/web/"* "$DOCS_DIR/"
 
-  # Copy new build
-  cp -r "$EXAMPLE_DIR/build/web/"* "$DOCS_DIR/"
-
-  echo "Done!"
-fi
-
+echo "Done!"
 echo ""
 echo "====================================="
 echo "Docs built successfully!"

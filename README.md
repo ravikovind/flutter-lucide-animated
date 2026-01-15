@@ -1,21 +1,20 @@
 # Flutter Lucide Animated
 
-Beautiful, customizable animated Lucide icons for Flutter with on-demand CLI fetching.
+Beautiful, customizable animated Lucide icons for Flutter.
 
 [![pub package](https://img.shields.io/pub/v/flutter_lucide_animated.svg)](https://pub.dev/packages/flutter_lucide_animated)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 **[Live Demo](https://ravikovind.github.io/flutter-lucide-animated/)**
 
-Bring the smooth, delightful animations from [lucide-animated](https://github.com/pqoqubbw/icons) to your Flutter apps. 370+ animated icons with multiple animation types and triggers.
+Bring the smooth, delightful animations from [lucide-animated](https://github.com/pqoqubbw/icons) to your Flutter apps.
 
 ## Features
 
-- **370+ animated icons** - All icons from lucide-animated
-- **Multiple animation types** - pathLength (stroke drawing), rotate, translate, scale, opacity, keyframes
+- **375 animated icons** - All icons from lucide-animated
+- **Multiple animation types** - pathLength, rotate, translate, scale, opacity, keyframes
 - **Flexible triggers** - onTap, onHover, loop, or manual control
-- **On-demand fetching** - Only add the icons you need via CLI
-- **Tree-shakeable** - Generated code, no unused icons in your bundle
+- **Tree-shakeable** - Only icons you import are included in your bundle
 - **Customizable** - Size, color, duration, curve overrides
 
 ## Installation
@@ -24,39 +23,21 @@ Bring the smooth, delightful animations from [lucide-animated](https://github.co
 flutter pub add flutter_lucide_animated
 ```
 
-## Quick Start
-
-### 1. Add icons to your project
-
-```bash
-# Add specific icons
-dart run flutter_lucide_animated add flame settings bell
-
-# Search available icons
-dart run flutter_lucide_animated list --search arrow
-
-# Add all icons (370+)
-dart run flutter_lucide_animated add --all
-```
-
-### 2. Use in your app
+## Usage
 
 ```dart
-import 'package:flutter/material.dart';
 import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
-import 'lucide_animated/lucide_animated.dart';
 
-class MyWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return LucideAnimatedIcon(
-      icon: flame,
-      size: 32,
-      color: Colors.orange,
-      trigger: AnimationTrigger.onTap,
-    );
-  }
-}
+// Simple usage
+LucideAnimatedIcon(icon: flame)
+
+// With customization
+LucideAnimatedIcon(
+  icon: settings,
+  size: 32,
+  color: Colors.blue,
+  trigger: AnimationTrigger.onHover,
+)
 ```
 
 ## Animation Triggers
@@ -146,40 +127,11 @@ LucideAnimatedIcon(
   size: 48,
   color: Colors.amber,
   trigger: AnimationTrigger.onHover,
-  // Override animation duration
   duration: Duration(milliseconds: 600),
-  // Override animation curve
   curve: Curves.elasticOut,
-  // Override stroke width
   strokeWidth: 2.5,
-  // Callback on tap
   onTap: () => print('Icon tapped!'),
 )
-```
-
-## CLI Commands
-
-```bash
-# Add icons (generates .g.dart files)
-dart run flutter_lucide_animated add flame settings home
-
-# List all available icons
-dart run flutter_lucide_animated list
-
-# Search icons
-dart run flutter_lucide_animated list --search arrow
-
-# List installed icons
-dart run flutter_lucide_animated list --installed
-
-# Remove icons
-dart run flutter_lucide_animated remove flame
-
-# Update installed icons to latest
-dart run flutter_lucide_animated update
-
-# Custom output directory
-dart run flutter_lucide_animated add flame --output lib/icons
 ```
 
 ## Animation Types
@@ -187,58 +139,37 @@ dart run flutter_lucide_animated add flame --output lib/icons
 | Type | Description | Example Icons |
 |------|-------------|---------------|
 | `pathLength` | Stroke drawing animation | flame, check, heart |
-| `rotate` | Rotation animation | settings, refresh-cw |
+| `rotate` | Rotation animation | settings, refresh_cw |
 | `rotateKeyframe` | Keyframe rotation (shake) | bell, vibrate |
-| `translate` | Position animation | arrow-right, copy |
-| `translateKeyframe` | Keyframe position | arrow-right |
-| `scale` | Scale animation | plus, minus |
-| `opacity` | Fade animation | eye, eye-off |
+| `translate` | Position animation | arrow_right, copy |
+| `scale` | Scale animation | plus, play |
+| `opacity` | Fade animation | eye, eye_off |
 | `combined` | Multiple animations | flame (pathLength + opacity) |
 
 ## Available Icons
 
-370+ icons available. Run `dart run flutter_lucide_animated list` to see all.
+375 icons available including:
 
-Popular icons include:
 - **Actions**: check, x, plus, minus, copy, download, upload
-- **Arrows**: arrow-right, arrow-left, arrow-up, arrow-down, chevron-*
-- **Communication**: bell, mail-check, message-circle, message-square
-- **Device**: smartphone-*, battery-*, bluetooth-*, wifi
-- **Media**: play, volume, mic, mic-off
+- **Arrows**: arrow_right, arrow_left, arrow_up, arrow_down, chevron_*
+- **Communication**: bell, mail_check, message_circle, message_square
+- **Device**: smartphone_*, battery_*, bluetooth_*, wifi
+- **Media**: play, volume, mic, mic_off
 - **Navigation**: menu, home, search, settings
 - **Social**: github, twitter, instagram, linkedin, youtube
-- **Weather**: sun, moon, cloud-*, snowflake
+- **Weather**: sun, moon, cloud_*, snowflake
 
-## How It Works
+## For Package Maintainers
 
-1. **CDN**: Icon animation data is hosted on GitHub Pages
-2. **CLI**: Fetches icon data and generates Dart code
-3. **Widget**: Renders animations using CustomPainter + AnimationController
-4. **Caching**: Path parsing is cached for smooth 60fps animations
-
-## Development
-
-### Build Docs (Example + Icons CDN)
-
-```bash
-# Build example for GitHub Pages
-./scripts/build-docs.sh
-
-# Sync icons from pqoqubbw/icons and build example
-./scripts/build-docs.sh --sync
-
-# Only sync icons (no example build)
-./scripts/build-docs.sh --sync --no-example
-```
-
-### Sync Icons Only
+To update icons when upstream changes:
 
 ```bash
 cd scripts
 npm install
-node sync.js           # Sync all icons
-node sync.js --limit 20  # Test with first 20 icons
+node sync.js
 ```
+
+This regenerates all Dart files from [pqoqubbw/icons](https://github.com/pqoqubbw/icons).
 
 ## Credits
 

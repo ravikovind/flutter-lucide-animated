@@ -1,0 +1,67 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// Run `node scripts/sync.js` to regenerate
+// ignore_for_file: constant_identifier_names
+
+import 'package:flutter/widgets.dart';
+import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
+
+/// [meh] lucide animated icon.
+const meh = LucideAnimatedIconData(
+  name: 'meh',
+  viewBoxWidth: 24.0,
+  viewBoxHeight: 24.0,
+  strokeWidth: 2.0,
+  elements: [
+    CircleElement(
+      cx: 12,
+      cy: 12,
+      r: 10,
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 0),
+        curve: Curves.easeOut,
+      ),
+    ),
+    LineElement(
+      x1: 8,
+      y1: 15,
+      x2: 16,
+      y2: 15,
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 50),
+        curve: Curves.easeOut,
+      ),
+    ),
+    LineElement(
+      x1: 9,
+      y1: 9,
+      x2: 9.01,
+      y2: 9,
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 100),
+        curve: Curves.easeOut,
+      ),
+    ),
+    LineElement(
+      x1: 15,
+      y1: 9,
+      x2: 15.01,
+      y2: 9,
+      animation: PathLengthAnimation(
+        from: 0,
+        to: 1,
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 150),
+        curve: Curves.easeOut,
+      ),
+    ),
+  ],
+);

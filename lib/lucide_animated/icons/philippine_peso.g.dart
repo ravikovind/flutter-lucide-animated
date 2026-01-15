@@ -1,0 +1,76 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// Run `node scripts/sync.js` to regenerate
+// ignore_for_file: constant_identifier_names
+
+import 'package:flutter/widgets.dart';
+import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
+
+/// [philippine-peso] lucide animated icon.
+const philippine_peso = LucideAnimatedIconData(
+  name: 'philippine-peso',
+  viewBoxWidth: 24.0,
+  viewBoxHeight: 24.0,
+  strokeWidth: 2.0,
+  elements: [
+    PathElement(
+      d: 'M7 21V4a1 1 0 0 1 1-1h4a1 1 0 0 1 0 12H7',
+      animation: CombinedAnimation(
+        pathLength: PathLengthAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        opacity: OpacityAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      ),
+    ),
+    PathElement(
+      d: 'M20 7H4',
+      animation: CombinedAnimation(
+        pathLength: PathLengthAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        opacity: OpacityAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      ),
+    ),
+    PathElement(
+      d: 'M20 11H4',
+      animation: CombinedAnimation(
+        pathLength: PathLengthAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        opacity: OpacityAnimation(
+          from: 0,
+          to: 1,
+          duration: Duration(milliseconds: 400),
+          curve: Curves.easeOut,
+        ),
+        duration: Duration(milliseconds: 400),
+        delay: Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      ),
+    ),
+  ],
+);

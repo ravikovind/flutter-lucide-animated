@@ -73,3 +73,11 @@ class PolylineElement extends IconElement {
 
   const PolylineElement({required this.points, super.animation});
 }
+
+/// SVG polygon element (closed polyline)
+class PolygonElement extends IconElement {
+  /// List of points as "x1,y1 x2,y2 x3,y3..."
+  final String points;
+
+  const PolygonElement({required this.points, super.animation});
+}

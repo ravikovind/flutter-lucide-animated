@@ -10,3 +10,6 @@ export 'src/painters/animated_path_painter.dart';
 // Widgets
 export 'src/widgets/controller.dart';
 export 'src/widgets/lucide_animated_icon.dart';
+
+// Icons (375 animated icons)
+export 'lucide_animated/lucide_animated.dart';

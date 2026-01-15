@@ -225,6 +225,8 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
         child = _buildLineElement(x1, y1, x2, y2, element.animation);
       case PolylineElement():
         child = _buildPolylineElement(element);
+      case PolygonElement():
+        child = _buildPolygonElement(element);
     }
 
     // Apply element-level transforms (translate, rotate, scale)
@@ -335,6 +337,21 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
     for (int i = 1; i < points.length; i++) {
       buffer.write(' L${points[i]}');
     }
+    return _buildPathElement(buffer.toString(), element.animation);
+  }
+
+  Widget _buildPolygonElement(PolygonElement element) {
+    // Convert polygon points to closed path
+    final points = element.points.trim().split(RegExp(r'\s+'));
+    if (points.isEmpty) {
+      return SizedBox(width: widget.size, height: widget.size);
+    }
+
+    final buffer = StringBuffer('M${points.first}');
+    for (int i = 1; i < points.length; i++) {
+      buffer.write(' L${points[i]}');
+    }
+    buffer.write(' Z'); // Close the path
     return _buildPathElement(buffer.toString(), element.animation);
   }
 

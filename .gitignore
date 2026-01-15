@@ -45,14 +45,14 @@ app.*.map.json
 node_modules/
 scripts/node_modules/
 
+# Sync script
+scripts/.icons-repo/
+
 # Platform specific
 /poc/.dart_tool/
 /poc/build/
 /packages/*/.dart_tool/
 /packages/*/build/
-
-# Generated files (keep these in repo for CDN)
-# /docs/v1/icons/
 
 # Test coverage
 coverage/

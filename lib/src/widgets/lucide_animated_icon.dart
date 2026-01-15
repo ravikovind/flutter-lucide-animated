@@ -4,7 +4,11 @@ import '../models/models.dart';
 import '../painters/painters.dart';
 import 'controller.dart';
 
-/// A widget that displays an animated Lucide icon
+/// [LucideAnimatedIcon] displays an animated Lucide icon.
+///
+/// Supports multiple animation triggers: [AnimationTrigger.onTap],
+/// [AnimationTrigger.onHover], [AnimationTrigger.loop], and
+/// [AnimationTrigger.manual].
 class LucideAnimatedIcon extends StatefulWidget {
   /// The icon data to display
   final LucideAnimatedIconData icon;

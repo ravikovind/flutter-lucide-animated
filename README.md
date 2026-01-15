@@ -1,181 +1,136 @@
-# Flutter Lucide Animated
+# flutter_lucide_animated
 
-Beautiful, customizable animated Lucide icons for Flutter.
+[![pub package](https://img.shields.io/pub/v/flutter_lucide_animated.svg)](https://pub.dartlang.org/packages/flutter_lucide_animated)
+[![Score](https://img.shields.io/pub/points/flutter_lucide_animated?label=Score&logo=dart)](https://pub.dartlang.org/packages/flutter_lucide_animated/score)
+[![Platform](https://img.shields.io/badge/Platform-Android%20|%20iOS%20|%20Web%20|%20macOS%20|%20Windows%20|%20Linux%20-blue.svg?logo=flutter)](https://pub.dartlang.org/packages/flutter_lucide_animated)
+![GitHub stars](https://img.shields.io/github/stars/ravikovind/flutter-lucide-animated)
+![GitHub forks](https://img.shields.io/github/forks/ravikovind/flutter-lucide-animated)
+![GitHub issues](https://img.shields.io/github/issues/ravikovind/flutter-lucide-animated)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ravikovind/flutter-lucide-animated)
+![GitHub contributors](https://img.shields.io/github/contributors/ravikovind/flutter-lucide-animated)
+![GitHub last commit](https://img.shields.io/github/last-commit/ravikovind/flutter-lucide-animated)
 
-[![pub package](https://img.shields.io/pub/v/flutter_lucide_animated.svg)](https://pub.dev/packages/flutter_lucide_animated)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+A Flutter package providing **375+ beautiful animated icons** from [Lucide Animated](https://lucide-animated.com/). Each icon features smooth, carefully crafted animations including stroke drawing, rotation, translation, scale, and opacity effects.
 
-**[Live Demo](https://ravikovind.github.io/flutter-lucide-animated/)**
+![Lucide Animated](https://github.com/ravikovind/flutter-lucide-animated/raw/main/screenshots/og.png)
 
-Bring the smooth, delightful animations from [lucide-animated](https://github.com/pqoqubbw/icons) to your Flutter apps.
+## Live Demo
+
+[ravikovind.github.io/flutter-lucide-animated](https://ravikovind.github.io/flutter-lucide-animated/)
 
 ## Features
 
-- **375 animated icons** - All icons from lucide-animated
-- **Multiple animation types** - pathLength, rotate, translate, scale, opacity, keyframes
-- **Flexible triggers** - onTap, onHover, loop, or manual control
-- **Tree-shakeable** - Only icons you import are included in your bundle
-- **Customizable** - Size, color, duration, curve overrides
+- **375+ Animated Icons** - Comprehensive collection of animated Lucide icons
+- **Tree Shaking** - Only include icons you actually use
+- **Cross Platform** - Works on Android, iOS, Web, macOS, Windows, and Linux
+- **Multiple Animation Triggers** - onTap, onHover, loop, or manual control
+- **Customizable** - Control size, color, duration, and curves
+- **60fps Animations** - Path caching for smooth performance
 
 ## Installation
 
-```bash
-flutter pub add flutter_lucide_animated
+Add `flutter_lucide_animated` to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flutter_lucide_animated: ^0.0.2
 ```
 
-## Usage
+Then run:
+
+```bash
+flutter pub get
+```
+
+## Quick Start
+
+1. **Import the package** in your Dart file:
 
 ```dart
 import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';
+```
 
-// Simple usage
-LucideAnimatedIcon(icon: flame)
+2. **Use any icon** in your widgets:
 
-// With customization
+```dart
+// Animate on tap (default)
+LucideAnimatedIcon(icon: heart)
+
+// Animate on hover
+LucideAnimatedIcon(icon: search, trigger: AnimationTrigger.onHover)
+
+// Continuous loop
+LucideAnimatedIcon(icon: loader_pinwheel, trigger: AnimationTrigger.loop)
+
+// Customize appearance
 LucideAnimatedIcon(
-  icon: settings,
-  size: 32,
+  icon: bell,
+  size: 48,
   color: Colors.blue,
-  trigger: AnimationTrigger.onHover,
+  duration: Duration(milliseconds: 600),
 )
 ```
 
 ## Animation Triggers
 
-```dart
-// Animate on tap
-LucideAnimatedIcon(
-  icon: flame,
-  trigger: AnimationTrigger.onTap,
-)
-
-// Animate on hover (great for web/desktop)
-LucideAnimatedIcon(
-  icon: settings,
-  trigger: AnimationTrigger.onHover,
-)
-
-// Continuous loop
-LucideAnimatedIcon(
-  icon: loader_pinwheel,
-  trigger: AnimationTrigger.loop,
-)
-
-// Manual control
-LucideAnimatedIcon(
-  icon: check,
-  trigger: AnimationTrigger.manual,
-  controller: myController,
-)
-```
+| Trigger | Description |
+|---------|-------------|
+| `AnimationTrigger.onTap` | Animate when tapped (default) |
+| `AnimationTrigger.onHover` | Animate on mouse enter (web/desktop) |
+| `AnimationTrigger.loop` | Continuous animation loop |
+| `AnimationTrigger.manual` | Control via `LucideAnimatedIconController` |
 
 ## Manual Control
 
 ```dart
-class MyWidget extends StatefulWidget {
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
+final controller = LucideAnimatedIconController();
 
-class _MyWidgetState extends State<MyWidget> {
-  final _controller = LucideAnimatedIconController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        LucideAnimatedIcon(
-          icon: flame,
-          size: 64,
-          color: Colors.red,
-          trigger: AnimationTrigger.manual,
-          controller: _controller,
-        ),
-        Row(
-          children: [
-            ElevatedButton(
-              onPressed: () => _controller.animate(),
-              child: Text('Play'),
-            ),
-            ElevatedButton(
-              onPressed: () => _controller.reverse(),
-              child: Text('Reverse'),
-            ),
-            ElevatedButton(
-              onPressed: () => _controller.reset(),
-              child: Text('Reset'),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}
-```
-
-## Customization
-
-```dart
 LucideAnimatedIcon(
-  icon: bell,
-  size: 48,
-  color: Colors.amber,
-  trigger: AnimationTrigger.onHover,
-  duration: Duration(milliseconds: 600),
-  curve: Curves.elasticOut,
-  strokeWidth: 2.5,
-  onTap: () => print('Icon tapped!'),
+  icon: heart,
+  trigger: AnimationTrigger.manual,
+  controller: controller,
 )
+
+// Control the animation
+controller.animate();  // Play forward
+controller.reverse();  // Play backward
+controller.reset();    // Reset to start
+controller.toggle();   // Toggle state
 ```
 
 ## Animation Types
 
-| Type | Description | Example Icons |
-|------|-------------|---------------|
-| `pathLength` | Stroke drawing animation | flame, check, heart |
-| `rotate` | Rotation animation | settings, refresh_cw |
-| `rotateKeyframe` | Keyframe rotation (shake) | bell, vibrate |
-| `translate` | Position animation | arrow_right, copy |
-| `scale` | Scale animation | plus, play |
-| `opacity` | Fade animation | eye, eye_off |
-| `combined` | Multiple animations | flame (pathLength + opacity) |
+Icons support various animation types:
 
-## Available Icons
+- **PathLength** - Stroke drawing effect
+- **Opacity** - Fade in/out
+- **Rotate** - Rotation with keyframe support
+- **Translate** - Position movement with keyframe support
+- **Scale** - Size scaling with keyframe support
+- **Combined** - Multiple animations together
 
-375 icons available including:
+## Contributing
 
-- **Actions**: check, x, plus, minus, copy, download, upload
-- **Arrows**: arrow_right, arrow_left, arrow_up, arrow_down, chevron_*
-- **Communication**: bell, mail_check, message_circle, message_square
-- **Device**: smartphone_*, battery_*, bluetooth_*, wifi
-- **Media**: play, volume, mic, mic_off
-- **Navigation**: menu, home, search, settings
-- **Social**: github, twitter, instagram, linkedin, youtube
-- **Weather**: sun, moon, cloud_*, snowflake
+We welcome contributions! Please see our issues page for details.
 
-## For Package Maintainers
-
-To update icons when upstream changes:
-
-```bash
-cd scripts
-npm install
-node sync.js
-```
-
-This regenerates all Dart files from [pqoqubbw/icons](https://github.com/pqoqubbw/icons).
-
-## Credits
-
-- Icons and animations from [pqoqubbw/icons](https://github.com/pqoqubbw/icons)
-- Original icon designs from [Lucide](https://lucide.dev)
+- **Bug reports**: [Open an issue](https://github.com/ravikovind/flutter-lucide-animated/issues)
+- **Feature requests**: [Open an issue](https://github.com/ravikovind/flutter-lucide-animated/issues)
+- **Pull requests**: [Submit a PR](https://github.com/ravikovind/flutter-lucide-animated/pulls)
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Links
+
+- **Lucide Animated**: [lucide-animated.com](https://lucide-animated.com/)
+- **Lucide Icons**: [lucide.dev](https://lucide.dev/)
+- **Original Animations**: [github.com/pqoqubbw/icons](https://github.com/pqoqubbw/icons)
+
+## Maintainers
+
+- [Ravi Kovind](https://ravikovind.github.io/)
+
+## Disclaimer
+
+This is not an official Lucide package. The animated icons are based on work by [pqoqubbw/icons](https://github.com/pqoqubbw/icons). All assets are owned by their respective owners. This package is created to help the Flutter community.

@@ -30,9 +30,8 @@ const CONFIG = {
   repoUrl: "https://github.com/pqoqubbw/icons.git",
   repoDir: path.join(__dirname, ".icons-repo"),
   iconsPath: "icons",
-  // Dart output (for package)
-  dartOutputDir: path.join(__dirname, "..", "lib", "lucide_animated"),
-  dartIconsDir: path.join(__dirname, "..", "lib", "lucide_animated", "icons"),
+  // Dart output (single file in lib/src/)
+  dartOutputFile: path.join(__dirname, "..", "lib", "src", "icons.dart"),
 };
 
 const SVG_ELEMENT_TYPES = ["path", "circle", "rect", "line", "polyline", "ellipse", "polygon"];
@@ -917,20 +916,13 @@ function generateDartElement(element, index) {
   }
 }
 
-function generateDartIcon(iconData) {
+function generateDartIconConst(iconData) {
   const varName = toSnakeCase(iconData.name);
   const viewBoxParts = iconData.viewBox.split(" ").map(Number);
   const viewBoxWidth = viewBoxParts[2] || 24;
   const viewBoxHeight = viewBoxParts[3] || 24;
 
   const lines = [
-    "// GENERATED CODE - DO NOT MODIFY BY HAND",
-    "// Run `node scripts/sync.js` to regenerate",
-    "// ignore_for_file: constant_identifier_names",
-    "",
-    "import 'package:flutter/widgets.dart';",
-    "import 'package:flutter_lucide_animated/flutter_lucide_animated.dart';",
-    "",
     `/// [${iconData.name}] lucide animated icon.`,
     `const ${varName} = LucideAnimatedIconData(`,
     `  name: '${iconData.name}',`,
@@ -959,36 +951,36 @@ function generateDartIcon(iconData) {
 
   lines.push("  ],");
   lines.push(");");
-  lines.push("");
 
   return lines.join("\n");
 }
 
-function writeIconDart(iconData) {
-  const fileName = `${toSnakeCase(iconData.name)}.g.dart`;
-  const filePath = path.join(CONFIG.dartIconsDir, fileName);
-  const dartCode = generateDartIcon(iconData);
-  fs.writeFileSync(filePath, dartCode);
-}
+function writeAllIcons(iconDataList) {
+  const sortedIcons = iconDataList.sort((a, b) => a.name.localeCompare(b.name));
 
-function writeBarrelExport(iconNames) {
-  const sortedNames = iconNames.sort();
   const lines = [
     "// GENERATED CODE - DO NOT MODIFY BY HAND",
     "// Run `node scripts/sync.js` to regenerate",
-    `// ${sortedNames.length} animated Lucide icons for Flutter`,
+    "// ignore_for_file: constant_identifier_names",
+    "",
+    `// ${sortedIcons.length} animated Lucide icons for Flutter.`,
+    "// All icons are tree-shakeable - only the icons you use will be",
+    "// included in your final build.",
+    "",
+    "import 'package:flutter/widgets.dart';",
+    "",
+    "import 'models/animation.dart';",
+    "import 'models/element.dart';",
+    "import 'models/icon_data.dart';",
     "",
   ];
 
-  for (const name of sortedNames) {
-    const fileName = toSnakeCase(name);
-    lines.push(`export 'icons/${fileName}.g.dart';`);
+  for (const iconData of sortedIcons) {
+    lines.push(generateDartIconConst(iconData));
+    lines.push("");
   }
 
-  lines.push("");
-
-  const filePath = path.join(CONFIG.dartOutputDir, "lucide_animated.dart");
-  fs.writeFileSync(filePath, lines.join("\n"));
+  fs.writeFileSync(CONFIG.dartOutputFile, lines.join("\n"));
 }
 
 // =============================================================================
@@ -1003,9 +995,6 @@ function main() {
   cloneOrUpdateRepo();
   console.log("");
 
-  // Create output directory
-  fs.mkdirSync(CONFIG.dartIconsDir, { recursive: true });
-
   let iconNames = getIconList();
   if (LIMIT) {
     console.log(`Limiting to first ${LIMIT} icons (test mode)`);
@@ -1013,7 +1002,7 @@ function main() {
   }
 
   console.log("");
-  console.log("Syncing icons...");
+  console.log("Parsing icons...");
 
   const successfulIcons = [];
   const failedIcons = [];
@@ -1029,8 +1018,7 @@ function main() {
       const iconData = parseIconSource(iconName, source);
 
       if (iconData.elements.length > 0) {
-        writeIconDart(iconData);
-        successfulIcons.push(iconName);
+        successfulIcons.push(iconData);
         console.log("done");
       } else {
         console.log("skipped (no elements)");
@@ -1043,8 +1031,8 @@ function main() {
   }
 
   console.log("");
-  console.log("Writing barrel export...");
-  writeBarrelExport(successfulIcons);
+  console.log("Writing icons.dart...");
+  writeAllIcons(successfulIcons);
 
   console.log("");
   console.log("============================");
@@ -1052,7 +1040,7 @@ function main() {
   if (failedIcons.length > 0) {
     console.log(`Failed: ${failedIcons.length} icons`);
   }
-  console.log(`Output: ${CONFIG.dartIconsDir}`);
+  console.log(`Output: ${CONFIG.dartOutputFile}`);
 }
 
 main();

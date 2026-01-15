@@ -1,6 +1,6 @@
 import 'animation.dart';
 
-/// Base class for all SVG icon elements
+/// [IconElement] is the base class for all SVG icon elements.
 sealed class IconElement {
   /// Animation for this element (null if static)
   final ElementAnimation? animation;
@@ -8,7 +8,7 @@ sealed class IconElement {
   const IconElement({this.animation});
 }
 
-/// SVG path element
+/// [PathElement] represents an SVG path element.
 class PathElement extends IconElement {
   /// SVG path data (d attribute)
   final String d;
@@ -16,10 +16,15 @@ class PathElement extends IconElement {
   const PathElement({required this.d, super.animation});
 }
 
-/// SVG circle element
+/// [CircleElement] represents an SVG circle element.
 class CircleElement extends IconElement {
+  /// Center X coordinate
   final double cx;
+
+  /// Center Y coordinate
   final double cy;
+
+  /// Circle radius
   final double r;
 
   const CircleElement({
@@ -30,13 +35,24 @@ class CircleElement extends IconElement {
   });
 }
 
-/// SVG rectangle element
+/// [RectElement] represents an SVG rectangle element.
 class RectElement extends IconElement {
+  /// X position of top-left corner
   final double x;
+
+  /// Y position of top-left corner
   final double y;
+
+  /// Rectangle width
   final double width;
+
+  /// Rectangle height
   final double height;
+
+  /// Horizontal corner radius
   final double rx;
+
+  /// Vertical corner radius
   final double ry;
 
   const RectElement({
@@ -50,11 +66,18 @@ class RectElement extends IconElement {
   });
 }
 
-/// SVG line element
+/// [LineElement] represents an SVG line element.
 class LineElement extends IconElement {
+  /// Start X coordinate
   final double x1;
+
+  /// Start Y coordinate
   final double y1;
+
+  /// End X coordinate
   final double x2;
+
+  /// End Y coordinate
   final double y2;
 
   const LineElement({
@@ -66,7 +89,7 @@ class LineElement extends IconElement {
   });
 }
 
-/// SVG polyline element
+/// [PolylineElement] represents an SVG polyline element.
 class PolylineElement extends IconElement {
   /// List of points as "x1,y1 x2,y2 x3,y3..."
   final String points;
@@ -74,7 +97,7 @@ class PolylineElement extends IconElement {
   const PolylineElement({required this.points, super.animation});
 }
 
-/// SVG polygon element (closed polyline)
+/// [PolygonElement] represents an SVG polygon element (closed polyline).
 class PolygonElement extends IconElement {
   /// List of points as "x1,y1 x2,y2 x3,y3..."
   final String points;

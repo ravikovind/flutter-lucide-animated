@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'animation.dart';
 import 'element.dart';
 
-/// Data class representing an animated Lucide icon
+/// [LucideAnimatedIconData] represents an animated Lucide icon.
 class LucideAnimatedIconData {
   /// Icon name (e.g., 'flame', 'arrow_right')
   final String name;

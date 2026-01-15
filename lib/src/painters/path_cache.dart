@@ -2,7 +2,9 @@ import 'dart:ui';
 import 'package:flutter/rendering.dart' show Matrix4;
 import 'package:path_parsing/path_parsing.dart';
 
-/// Global cache for parsed SVG paths to avoid re-parsing on every paint
+/// [PathCache] provides global caching for parsed SVG paths.
+///
+/// Avoids re-parsing paths on every paint for better performance.
 class PathCache {
   static final Map<String, Path> _cache = {};
   static final Map<String, Path> _scaledCache = {};

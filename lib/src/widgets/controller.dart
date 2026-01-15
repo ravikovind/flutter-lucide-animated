@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-/// Controller for manually controlling LucideAnimatedIcon animations
+/// [LucideAnimatedIconController] provides manual control over icon animations.
+///
+/// Use with [AnimationTrigger.manual] for programmatic animation control.
 class LucideAnimatedIconController extends ChangeNotifier {
   AnimationController? _animationController;
   bool _isAnimating = false;

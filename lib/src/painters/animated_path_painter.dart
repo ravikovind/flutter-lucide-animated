@@ -1,7 +1,9 @@
 import 'package:flutter/rendering.dart';
 import 'path_cache.dart';
 
-/// CustomPainter for animating SVG path elements
+/// [AnimatedPathPainter] renders animated SVG path elements.
+///
+/// Supports pathLength animation for stroke drawing effects.
 class AnimatedPathPainter extends CustomPainter {
   /// SVG path data string
   final String pathData;
@@ -66,21 +68,24 @@ class AnimatedPathPainter extends CustomPainter {
   }
 }
 
-/// CustomPainter for multiple static paths (no pathLength animation)
+/// [MultiPathPainter] renders multiple static SVG paths.
+///
+/// Unlike [AnimatedPathPainter], this painter does not support pathLength
+/// animation - all paths are rendered fully.
 class MultiPathPainter extends CustomPainter {
-  /// List of SVG path data strings
+  /// List of SVG path data strings to render.
   final List<String> paths;
 
-  /// Opacity (0.0 to 1.0)
+  /// Opacity value from 0.0 (invisible) to 1.0 (fully visible).
   final double opacity;
 
-  /// Stroke color
+  /// Stroke color for all paths.
   final Color color;
 
-  /// Stroke width (in viewBox units)
+  /// Stroke width in viewBox units (scaled automatically).
   final double strokeWidth;
 
-  /// ViewBox size (assumes square, typically 24)
+  /// ViewBox size for scaling (assumes square, typically 24).
   final double viewBoxSize;
 
   MultiPathPainter({
@@ -116,14 +121,29 @@ class MultiPathPainter extends CustomPainter {
   }
 }
 
-/// CustomPainter for circle elements
+/// [CirclePainter] renders SVG circle elements.
+///
+/// Renders a stroked circle at the specified center point with the given radius.
 class CirclePainter extends CustomPainter {
+  /// Center X coordinate in viewBox units.
   final double cx;
+
+  /// Center Y coordinate in viewBox units.
   final double cy;
+
+  /// Circle radius in viewBox units.
   final double r;
+
+  /// Opacity value from 0.0 (invisible) to 1.0 (fully visible).
   final double opacity;
+
+  /// Stroke color for the circle.
   final Color color;
+
+  /// Stroke width in viewBox units (scaled automatically).
   final double strokeWidth;
+
+  /// ViewBox size for scaling (assumes square, typically 24).
   final double viewBoxSize;
 
   CirclePainter({

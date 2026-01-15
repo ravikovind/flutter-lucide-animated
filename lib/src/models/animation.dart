@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-/// Base class for all element animations
+/// [ElementAnimation] is the base class for all element animations.
 sealed class ElementAnimation {
   final Duration duration;
   final Duration delay;
@@ -13,8 +13,9 @@ sealed class ElementAnimation {
   });
 }
 
-/// Stroke drawing animation (pathLength: 0 -> 1)
-/// Animates the stroke from invisible to fully drawn
+/// [PathLengthAnimation] animates stroke drawing (pathLength: 0 -> 1).
+///
+/// Animates the stroke from invisible to fully drawn.
 class PathLengthAnimation extends ElementAnimation {
   final double from;
   final double to;
@@ -28,7 +29,7 @@ class PathLengthAnimation extends ElementAnimation {
   });
 }
 
-/// Opacity animation (fade in/out)
+/// [OpacityAnimation] animates opacity (fade in/out).
 class OpacityAnimation extends ElementAnimation {
   final double from;
   final double to;
@@ -42,7 +43,7 @@ class OpacityAnimation extends ElementAnimation {
   });
 }
 
-/// Rotation animation (simple from -> to)
+/// [RotateAnimation] animates rotation (simple from -> to).
 class RotateAnimation extends ElementAnimation {
   final double fromDegrees;
   final double toDegrees;
@@ -58,8 +59,9 @@ class RotateAnimation extends ElementAnimation {
   });
 }
 
-/// Keyframe rotation animation (shake effect)
-/// Example: [0, -10, 10, -10, 0] for bell shake
+/// [RotateKeyframeAnimation] animates rotation through keyframes (shake effect).
+///
+/// Example: `[0, -10, 10, -10, 0]` for bell shake.
 class RotateKeyframeAnimation extends ElementAnimation {
   final List<double> keyframes;
   final Alignment origin;
@@ -73,7 +75,7 @@ class RotateKeyframeAnimation extends ElementAnimation {
   });
 }
 
-/// Translation animation
+/// [TranslateAnimation] animates position translation.
 class TranslateAnimation extends ElementAnimation {
   final double fromX;
   final double toX;
@@ -91,8 +93,9 @@ class TranslateAnimation extends ElementAnimation {
   });
 }
 
-/// Keyframe translation animation
-/// Example: translateX: [0, 3, 0] for arrow bounce
+/// [TranslateKeyframeAnimation] animates translation through keyframes.
+///
+/// Example: `keyframesX: [0, 3, 0]` for arrow bounce.
 class TranslateKeyframeAnimation extends ElementAnimation {
   final List<double> keyframesX;
   final List<double> keyframesY;
@@ -106,7 +109,7 @@ class TranslateKeyframeAnimation extends ElementAnimation {
   });
 }
 
-/// Scale animation
+/// [ScaleAnimation] animates scale transformation.
 class ScaleAnimation extends ElementAnimation {
   final double from;
   final double to;
@@ -120,8 +123,9 @@ class ScaleAnimation extends ElementAnimation {
   });
 }
 
-/// Keyframe scale animation
-/// Example: [1, 0.85, 1] for pulse effect
+/// [ScaleKeyframeAnimation] animates scale through keyframes.
+///
+/// Example: `[1, 0.85, 1]` for pulse effect.
 class ScaleKeyframeAnimation extends ElementAnimation {
   final List<double> keyframes;
 
@@ -133,7 +137,7 @@ class ScaleKeyframeAnimation extends ElementAnimation {
   });
 }
 
-/// Combined animation for elements that have multiple properties animated
+/// [CombinedAnimation] combines multiple animation properties.
 class CombinedAnimation extends ElementAnimation {
   final PathLengthAnimation? pathLength;
   final OpacityAnimation? opacity;

@@ -12,7 +12,7 @@
 
 A Flutter package providing **375+ beautiful animated icons** from [Lucide Animated](https://lucide-animated.com/). Each icon features smooth, carefully crafted animations including stroke drawing, rotation, translation, scale, and opacity effects.
 
-![Lucide Animated](https://github.com/ravikovind/flutter-lucide-animated/raw/main/screenshots/og.png)
+![Lucide Animated](https://github.com/ravikovind/flutter-lucide-animated/raw/dev/screenshots/og.png)
 
 ## Live Demo
 

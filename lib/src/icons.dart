@@ -8068,171 +8068,72 @@ const fingerprint = LucideAnimatedIconData(
   elements: [
     PathElement(
       d: 'M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M14 13.12c0 2.38 0 6.38-1 8.88',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M17.29 21.02c.12-.6.43-2.3.5-3.02',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M2 12a10 10 0 0 1 18-6',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M2 16h.01',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M21.8 16c.2-2 .131-5.354 0-6',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M8.65 22c.21-.66.45-1.32.57-2',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M9 6.8a6 6 0 0 1 9 5.2v2',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0.1,
-          to: 0.3,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0.1, 0.3, 0.5, 0.7, 0.9, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
@@ -12651,18 +12552,16 @@ const link = LucideAnimatedIconData(
   elements: [
     PathElement(
       d: 'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71',
-      animation: PathLengthAnimation(
-        from: 1,
-        to: 0.97,
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [1, 0.97, 1, 0.97, 1],
         duration: Duration(milliseconds: 1000),
         curve: Curves.easeInOut,
       ),
     ),
     PathElement(
       d: 'M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71',
-      animation: PathLengthAnimation(
-        from: 1,
-        to: 0.97,
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [1, 0.97, 1, 0.97, 1],
         duration: Duration(milliseconds: 1000),
         curve: Curves.easeInOut,
       ),
@@ -14760,57 +14659,24 @@ const party_popper = LucideAnimatedIconData(
     ),
     PathElement(
       d: 'm14 10 1.21-1.06c0.16-0.84 0.9-1.44 1.76-1.44h0.38c0.88 0 1.55-0.77 1.45-1.63a2.9 2.9 0 0 1 1.96-3.12L22 2',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0,
-          to: 0.5,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0, 0.5, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M17 15h0.77c0.71 0 1.32-0.52 1.43-1.22c0.16-0.91 1.12-1.45 1.98-1.11L22 13',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0,
-          to: 0.5,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0, 0.5, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
     ),
     PathElement(
       d: 'M9 7V6.23c0-0.71 0.52-1.33 1.22-1.43c0.91-0.16 1.45-1.12 1.11-1.98L11 2',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0,
-          to: 0.5,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0, 0.5, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),
@@ -14889,19 +14755,8 @@ const pen_tool = LucideAnimatedIconData(
     ),
     PathElement(
       d: 'm2.3 2.3 7.286 7.286',
-      animation: CombinedAnimation(
-        pathLength: PathLengthAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
-        opacity: OpacityAnimation(
-          from: 0,
-          to: 1,
-          duration: Duration(milliseconds: 400),
-          curve: Curves.easeOut,
-        ),
+      animation: PathLengthKeyframeAnimation(
+        keyframes: [0, 0, 1],
         duration: Duration(milliseconds: 400),
         curve: Curves.easeOut,
       ),

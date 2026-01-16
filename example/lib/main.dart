@@ -568,7 +568,7 @@ class _IconGalleryState extends State<IconGallery> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     letterSpacing: 2.4,
-                    wordSpacing: 2.4
+                    wordSpacing: 2.4,
                   ),
                   textAlign: TextAlign.center,
                 ),

@@ -1,4 +1,4 @@
-# flutter_lucide_animated
+## flutter_lucide_animated
 
 [![pub package](https://img.shields.io/pub/v/flutter_lucide_animated.svg)](https://pub.dartlang.org/packages/flutter_lucide_animated)
 [![Score](https://img.shields.io/pub/points/flutter_lucide_animated?label=Score&logo=dart)](https://pub.dartlang.org/packages/flutter_lucide_animated/score)
@@ -33,7 +33,7 @@ Add `flutter_lucide_animated` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_lucide_animated: ^0.0.2
+  flutter_lucide_animated: ^0.0.4
 ```
 
 Then run:

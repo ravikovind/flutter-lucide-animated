@@ -654,6 +654,28 @@ function determineAnimation(variants, transition) {
 }
 
 function buildPathLengthAnimation(normal, animate, base) {
+  // Check if pathLength is a keyframe array (more than 2 values)
+  if (Array.isArray(animate.pathLength) && animate.pathLength.length > 2) {
+    // Handle keyframe-based pathLength animation
+    const keyframes = animate.pathLength;
+
+    // Combined with opacity keyframes
+    if ("opacity" in animate || "opacity" in normal) {
+      let opFrom = Array.isArray(animate.opacity) ? animate.opacity[0] : (normal.opacity ?? 0);
+      let opTo = Array.isArray(animate.opacity) ? animate.opacity[animate.opacity?.length - 1] : (animate.opacity ?? 1);
+      ({ from: opFrom, to: opTo } = fixOpacity(opFrom, opTo));
+
+      return {
+        type: "combinedKeyframe",
+        pathLengthKeyframes: keyframes,
+        opacity: { from: opFrom, to: opTo },
+        ...base,
+      };
+    }
+
+    return { type: "pathLengthKeyframe", keyframes, ...base };
+  }
+
   let from = Array.isArray(animate.pathLength) ? animate.pathLength[0] : (normal.pathLength ?? 0);
   let to = Array.isArray(animate.pathLength) ? animate.pathLength[1] : (animate.pathLength ?? 1);
 
@@ -807,6 +829,32 @@ function generateDartAnimation(animation) {
       const from = animation.from ?? 0;
       const to = animation.to ?? 1;
       return `PathLengthAnimation(from: ${from}, to: ${to}, duration: ${durationMs}, ${delayMs} curve: ${curve})`;
+    }
+
+    case "pathLengthKeyframe": {
+      const keyframes = JSON.stringify(animation.keyframes || [0, 1]);
+      return `PathLengthKeyframeAnimation(keyframes: ${keyframes}, duration: ${durationMs}, ${delayMs} curve: ${curve})`;
+    }
+
+    case "combinedKeyframe": {
+      const parts = [];
+      if (animation.pathLengthKeyframes) {
+        const keyframes = JSON.stringify(animation.pathLengthKeyframes);
+        parts.push(`pathLengthKeyframes: ${keyframes}`);
+      }
+      if (animation.opacity) {
+        let { from = 0, to = 1 } = animation.opacity;
+        if (from === 0 && to === 0) to = 1;
+        if (from !== to) {
+          parts.push(`opacity: OpacityAnimation(from: ${from}, to: ${to}, duration: ${durationMs}, curve: ${curve})`);
+        }
+      }
+      // For now, treat combinedKeyframe as just pathLengthKeyframe since that's the main animation
+      if (animation.pathLengthKeyframes) {
+        const keyframes = JSON.stringify(animation.pathLengthKeyframes);
+        return `PathLengthKeyframeAnimation(keyframes: ${keyframes}, duration: ${durationMs}, ${delayMs} curve: ${curve})`;
+      }
+      return `PathLengthAnimation(from: 0, to: 1, duration: ${durationMs}, ${delayMs} curve: ${curve})`;
     }
 
     case "opacity": {

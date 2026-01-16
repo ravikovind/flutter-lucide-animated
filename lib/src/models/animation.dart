@@ -29,6 +29,20 @@ class PathLengthAnimation extends ElementAnimation {
   });
 }
 
+/// [PathLengthKeyframeAnimation] animates stroke drawing through keyframes.
+///
+/// Example: `[0.1, 0.3, 0.5, 0.7, 0.9, 1]` for progressive reveal.
+class PathLengthKeyframeAnimation extends ElementAnimation {
+  final List<double> keyframes;
+
+  const PathLengthKeyframeAnimation({
+    required this.keyframes,
+    super.duration = const Duration(milliseconds: 400),
+    super.delay,
+    super.curve,
+  });
+}
+
 /// [OpacityAnimation] animates opacity (fade in/out).
 class OpacityAnimation extends ElementAnimation {
   final double from;

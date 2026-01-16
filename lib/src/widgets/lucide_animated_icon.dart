@@ -250,6 +250,8 @@ class _LucideAnimatedIconState extends State<LucideAnimatedIcon>
       switch (animation) {
         case PathLengthAnimation(:final from, :final to):
           progress = from + (to - from) * curvedValue;
+        case PathLengthKeyframeAnimation(:final keyframes):
+          progress = _interpolateKeyframes(keyframes, curvedValue);
         case OpacityAnimation(:final from, :final to):
           opacity = from + (to - from) * curvedValue;
         case CombinedAnimation(:final pathLength, opacity: final opacityAnim):

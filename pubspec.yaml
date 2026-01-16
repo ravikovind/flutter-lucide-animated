@@ -1,6 +1,6 @@
 name: flutter_lucide_animated
 description: Flutter package for Lucide Animated Icons. 375+ beautifully animated icons with pathLength, rotate, translate, scale, and opacity animations. Tree-shaking enabled.
-version: 0.0.2
+version: 0.0.3
 homepage: https://lucide-animated.com/
 repository: https://github.com/ravikovind/flutter-lucide-animated
 issue_tracker: https://github.com/ravikovind/flutter-lucide-animated/issues

@@ -73,12 +73,12 @@ LucideAnimatedIcon(
 
 ## Animation Triggers
 
-| Trigger | Description |
-|---------|-------------|
-| `AnimationTrigger.onTap` | Animate when tapped (default) |
-| `AnimationTrigger.onHover` | Animate on mouse enter (web/desktop) |
-| `AnimationTrigger.loop` | Continuous animation loop |
-| `AnimationTrigger.manual` | Control via `LucideAnimatedIconController` |
+| Trigger                    | Description                                |
+| -------------------------- | ------------------------------------------ |
+| `AnimationTrigger.onTap`   | Animate when tapped (default)              |
+| `AnimationTrigger.onHover` | Animate on mouse enter (web/desktop)       |
+| `AnimationTrigger.loop`    | Continuous animation loop                  |
+| `AnimationTrigger.manual`  | Control via `LucideAnimatedIconController` |
 
 ## Manual Control
 
@@ -129,7 +129,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Maintainers
 
-- [Ravi Kovind](https://ravikovind.github.io/)
+- [Ravi Kovind](https://ravikovind.github.io/) - **Available for hire!**
 
 ## Disclaimer
 

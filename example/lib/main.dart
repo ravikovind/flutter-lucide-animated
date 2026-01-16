@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_lucide_animated/flutter_lucide_animated.dart' as lucide;
+import 'package:google_fonts/google_fonts.dart';
+import 'package:adaptive_screen_utils/adaptive_screen_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,14 +13,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lucide Animated Icons',
+      title: 'Lucide Animated',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF0a0a0a),
+        scaffoldBackgroundColor: const Color(0xFF09090B),
         colorScheme: const ColorScheme.dark(
           primary: Color(0xFFf97316),
-          surface: Color(0xFF0a0a0a),
+          surface: Color(0xFF09090B),
         ),
+        textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
       ),
       home: const IconGallery(),
     );
@@ -33,6 +37,7 @@ final List<(String, lucide.LucideAnimatedIconData)> _allIcons = [
   ('airplane', lucide.airplane),
   ('airplay', lucide.airplay),
   ('air_vent', lucide.air_vent),
+  ('alarm_clock', lucide.alarm_clock),
   ('align_center', lucide.align_center),
   ('align_horizontal', lucide.align_horizontal),
   ('align_left', lucide.align_left),
@@ -123,6 +128,7 @@ final List<(String, lucide.LucideAnimatedIconData)> _allIcons = [
   ('chevrons_right_left', lucide.chevrons_right_left),
   ('chevrons_up_down', lucide.chevrons_up_down),
   ('chevron_up', lucide.chevron_up),
+  ('chrome', lucide.chrome),
   ('circle_check', lucide.circle_check),
   ('circle_chevron_down', lucide.circle_chevron_down),
   ('circle_chevron_left', lucide.circle_chevron_left),
@@ -302,6 +308,7 @@ final List<(String, lucide.LucideAnimatedIconData)> _allIcons = [
   ('panel_left_open', lucide.panel_left_open),
   ('panel_right_open', lucide.panel_right_open),
   ('party_popper', lucide.party_popper),
+  ('pause', lucide.pause),
   ('pen_tool', lucide.pen_tool),
   ('philippine_peso', lucide.philippine_peso),
   ('play', lucide.play),
@@ -364,6 +371,7 @@ final List<(String, lucide.LucideAnimatedIconData)> _allIcons = [
   ('thermometer', lucide.thermometer),
   ('timer', lucide.timer),
   ('tornado', lucide.tornado),
+  ('train_track', lucide.train_track),
   ('trending_down', lucide.trending_down),
   ('trending_up', lucide.trending_up),
   ('trending_up_down', lucide.trending_up_down),
@@ -387,9 +395,11 @@ final List<(String, lucide.LucideAnimatedIconData)> _allIcons = [
   ('waves', lucide.waves),
   ('waves_ladder', lucide.waves_ladder),
   ('waypoints', lucide.waypoints),
+  ('webhook', lucide.webhook),
   ('wifi', lucide.wifi),
   ('wind', lucide.wind),
   ('wind_arrow_down', lucide.wind_arrow_down),
+  ('workflow', lucide.workflow),
   ('wrench', lucide.wrench),
   ('x', lucide.x),
   ('youtube', lucide.youtube),
@@ -406,6 +416,7 @@ class IconGallery extends StatefulWidget {
 
 class _IconGalleryState extends State<IconGallery> {
   String _searchQuery = '';
+  final _searchController = TextEditingController();
 
   List<(String, lucide.LucideAnimatedIconData)> get _filteredIcons {
     if (_searchQuery.isEmpty) return _allIcons;
@@ -428,106 +439,228 @@ class _IconGalleryState extends State<IconGallery> {
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final mobile = context.compact;
+    final tablet = context.medium;
+    final desktop = context.expanded;
+
+    // Responsive values
+    final crossAxisCount = mobile ? 2 : (tablet ? 4 : 6);
+    final padding = mobile ? 12.0 : 16.0;
+    final titleFontSize = mobile ? 24.0 : (tablet ? 32.0 : 40.0);
+
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      appBar: AppBar(
+        title: const Text('flutter-lucide-animated'),
+        centerTitle: false,
+        actionsPadding: const EdgeInsets.symmetric(horizontal: 16),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              final uri = Uri.parse(
+                "https://github.com/ravikovind/flutter_lucide_animated",
+              );
+              await launchUrl(uri);
+            },
+            icon: lucide.LucideAnimatedIcon(
+              icon: lucide.github,
+              trigger: lucide.AnimationTrigger.onTap,
+            ),
+          ),
+          IconButton(
+            onPressed: () async {
+              final uri = Uri.parse("https://lucide-animated.com");
+              await launchUrl(uri);
+            },
+            icon: lucide.LucideAnimatedIcon(
+              icon: lucide.link,
+              trigger: lucide.AnimationTrigger.onTap,
+            ),
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(padding),
         children: [
+          // Hero Section
           Padding(
-            padding: const EdgeInsets.fromLTRB(24, 48, 24, 24),
+            padding: EdgeInsets.symmetric(vertical: mobile ? 24 : 40),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Lucide Animated',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 8),
                 Text(
-                  '${_allIcons.length} beautifully animated icons for Flutter',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[400]),
+                  'Beautifully crafted',
+                  style: TextStyle(
+                    fontSize: titleFontSize,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    height: 1.2,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 24),
+                Text(
+                  'animated icons',
+                  style: TextStyle(
+                    fontSize: titleFontSize,
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xFFf97316),
+                    height: 1.2,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  '${_allIcons.length}+ smooth animations powered by Flutter',
+                  style: TextStyle(
+                    fontSize: mobile ? 14 : 16,
+                    color: Colors.grey[400],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                // Install command
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 12,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1a1a1a),
+                    color: const Color(0xFF18181B),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: const Color(0xFF262626)),
+                    border: Border.all(color: const Color(0xFF27272A)),
                   ),
                   child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Expanded(
+                      Flexible(
                         child: Text(
                           'flutter pub add flutter_lucide_animated',
-                          style: TextStyle(
-                            fontFamily: 'monospace',
-                            fontSize: 14,
-                            color: Colors.grey[300],
+                          style: GoogleFonts.jetBrainsMono(
+                            fontSize: mobile ? 11 : 14,
+                            color: Colors.grey[400],
                           ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
+                      const SizedBox(width: 12),
                       IconButton(
                         icon: const Icon(Icons.copy, size: 18),
-                        color: Colors.grey[500],
+                        color: Colors.grey[400],
                         onPressed: () => _copyToClipboard(
                           'flutter pub add flutter_lucide_animated',
                         ),
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 24),
-                TextField(
-                  onChanged: (value) => setState(() => _searchQuery = value),
-                  decoration: InputDecoration(
-                    hintText: 'Search ${_allIcons.length} lucide...',
-                    hintStyle: TextStyle(color: Colors.grey[600]),
-                    prefixIcon: Icon(Icons.search, color: Colors.grey[600]),
-                    filled: true,
-                    fillColor: const Color(0xFF1a1a1a),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFF262626)),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFF262626)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFFf97316)),
-                    ),
+                const SizedBox(height: 20),
+                Text(
+                  'Tap or Hover to animate!',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 2.4,
+                    wordSpacing: 2.4
                   ),
-                  style: const TextStyle(color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(24),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 7,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                childAspectRatio: 1.0,
+
+          // Search
+          Container(
+            margin: EdgeInsets.only(bottom: padding),
+            constraints: BoxConstraints(
+              maxWidth: mobile ? double.infinity : 500,
+            ),
+            child: TextField(
+              controller: _searchController,
+              onChanged: (value) => setState(() => _searchQuery = value),
+              decoration: InputDecoration(
+                hintText: 'Search ${_allIcons.length} icons...',
+                hintStyle: TextStyle(color: Colors.grey[500]),
+                prefixIcon: Icon(Icons.search, color: Colors.grey[500]),
+                filled: true,
+                fillColor: const Color(0xFF18181B),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Color(0xFF27272A)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Color(0xFF27272A)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Color(0xFFf97316)),
+                ),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
               ),
-              itemCount: _filteredIcons.length,
-              itemBuilder: (context, index) {
-                final (name, iconData) = _filteredIcons[index];
-                return _IconCard(
-                  iconData: iconData,
-                  onTap: () => _copyToClipboard(name),
-                );
-              },
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+
+          // Icon Grid
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              mainAxisSpacing: padding,
+              crossAxisSpacing: padding,
+              childAspectRatio: desktop ? 1.0 : 0.85,
+            ),
+            itemCount: _filteredIcons.length,
+            itemBuilder: (context, index) {
+              final (name, iconData) = _filteredIcons[index];
+              return _IconCard(
+                name: name,
+                iconData: iconData,
+                useHoverTrigger: desktop,
+                onTap: () => _copyToClipboard(name),
+              );
+            },
+          ),
+
+          // Footer
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: mobile ? 32 : 48),
+            child: Column(
+              children: [
+                const Divider(color: Color(0xFF27272A)),
+                const SizedBox(height: 24),
+                Text(
+                  'Made with Flutter by Ravi Kovind',
+                  style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+                ),
+                const SizedBox(height: 8),
+                TextButton(
+                  onPressed: () async {
+                    final uri = Uri.parse('https://ravikovind.github.io/');
+                    await launchUrl(uri);
+                  },
+                  child: Text(
+                    'Available for hire!',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: const Color(0xFFf97316),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -537,10 +670,17 @@ class _IconGalleryState extends State<IconGallery> {
 }
 
 class _IconCard extends StatefulWidget {
+  final String name;
   final lucide.LucideAnimatedIconData iconData;
+  final bool useHoverTrigger;
   final VoidCallback onTap;
 
-  const _IconCard({required this.iconData, required this.onTap});
+  const _IconCard({
+    required this.name,
+    required this.iconData,
+    required this.useHoverTrigger,
+    required this.onTap,
+  });
 
   @override
   State<_IconCard> createState() => _IconCardState();
@@ -551,6 +691,12 @@ class _IconCardState extends State<_IconCard> {
 
   @override
   Widget build(BuildContext context) {
+    const cardColor = Color(0xFF18181B);
+    const hoverColor = Color(0xFF27272A);
+    const borderColor = Color(0xFF27272A);
+    const hoverBorderColor = Color(0xFF3F3F46);
+    const iconColor = Colors.white;
+
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -558,27 +704,39 @@ class _IconCardState extends State<_IconCard> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),
-          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: _isHovered
-                ? const Color(0xFF1a1a1a)
-                : const Color(0xFF0f0f0f),
+            color: _isHovered ? hoverColor : cardColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: _isHovered
-                  ? const Color(0xFF404040)
-                  : const Color(0xFF262626),
+              color: _isHovered ? hoverBorderColor : borderColor,
             ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
             children: [
               lucide.LucideAnimatedIcon(
                 icon: widget.iconData,
-                size: 56,
-                color: _isHovered ? const Color(0xFFf97316) : Colors.white,
-                trigger: lucide.AnimationTrigger.onHover,
+                size: 48,
+                color: _isHovered ? const Color(0xFFf97316) : iconColor,
+                trigger: widget.useHoverTrigger
+                    ? lucide.AnimationTrigger.onHover
+                    : lucide.AnimationTrigger.onTap,
+              ),
+              const SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(
+                  widget.name.replaceAll('_', '-'),
+                  style: GoogleFonts.jetBrainsMono(
+                    fontSize: 10,
+                    color: _isHovered
+                        ? const Color(0xFFf97316)
+                        : Colors.grey[500],
+                  ),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
